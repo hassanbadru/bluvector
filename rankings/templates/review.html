@@ -1,0 +1,184 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+		<title>BeerVector</title>
+
+		<!-- Loading third party fonts -->
+		<!--<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css"> -->
+		<!--<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://use.fontawesome.com/d3a17e6b80.js"></script>
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{% static 'review.css' %}">
+
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+	</head>
+
+
+	<body>
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><i class="fa fa-beer" aria-hidden="true"></i> BeerVector </a>
+        </div>
+         
+        <!--
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Log In</a></li>
+          </ul>
+        </div>--><!--/.nav-collapse -->
+      </div>
+    </nav>
+        
+		<div class="col-md-12">
+           
+            
+			<main class="main-content">
+				<div class="container">
+					<div class="page">
+                        
+                        <br />
+                        <br />
+                        
+                         <!-- Sorter /Filter -->
+                        <ul class="nav nav-pills col-md-offset-4">
+                            <li class="active"><a data-toggle="pill" href="#">Highest Rated</a></li>
+                            <li><a data-toggle="pill" href="#">Recently Reviewed</a></li>
+                        </ul>
+                        
+                        <br />
+                        <br />
+
+						<div class="product-list">
+							<div class="product">
+								<a href="#">
+									<figure class="product-poster"><img src="{% static 'products_img/stella.jpg' %}" alt="#"></figure>
+									<div class="product-title">Stella Artois</div>
+								</a>
+								<p>Belgian</p>
+
+                                <strong>Rating:</strong>
+											<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
+
+							</div>
+
+							<div class="product">
+								<a href="#">
+									<figure class="product-poster"><img src="{% static 'products_img/heineken.jpg' %}" alt="#"></figure>
+									<div class="product-title">Heineken</div>
+								</a>
+								<p>Dutch</p>
+
+                                <strong>Rating:</strong>
+											<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div>
+
+							</div>
+
+							<div class="product">
+								<a href="#">
+									<figure class="product-poster"><img src="{% static 'products_img/sam_adams.jpg' %}" alt="#"></figure>
+									<div class="product-title">Samuel Adams</div>
+								</a>
+								<p>Boston</p>
+
+                      <strong>Rating:</strong>
+											<div class="star-rating" title="Rated 1.00 out of 5"><span style="width:20%"><strong class="rating">1.00</strong> out of 5</span></div>
+
+							</div>
+
+							<div class="product">
+								<a href="#">
+									<figure class="product-poster"><img src="{% static 'products_img/budweiser.jpg' %}" alt="#"></figure>
+									<div class="product-title">Budweiser</div>
+								</a>
+								<p>St Loius, Missouri</p>
+
+									<strong>Rating:</strong>
+									<div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div>
+
+							</div>
+
+							<div class="product">
+								<a href="#">
+									<figure class="product-poster"><img src="{% static 'products_img/guinness.jpg' %}" alt="#"></figure>
+									<div class="product-title">Guinness</div>
+								</a>
+								<p>Irish</p>
+
+								<strong>Rating:</strong>
+								<div class="star-rating" title="Rated 5.00 out of 5"><span style="width:100%"><strong class="rating">5.00</strong> out of 5</span></div>
+
+							</div>
+
+							<div class="product">
+								<a href="#">
+									<figure class="product-poster"><img src="{% static 'products_img/coors_light.jpg' %}" alt="#"></figure>
+									<div class="product-title">Coors Light</div>
+								</a>
+								<p>Milwaukee, WI</p>
+
+								<strong>Rating:</strong>
+								<div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div>
+							</div>
+
+							<div class="product">
+								<a href="#">
+									<figure class="product-poster"><img src="{% static 'products_img/blue_moon.jpg' %}" alt="#"></figure>
+									<div class="product-title">Blue Moon</div>
+								</a>
+								<p>Golden, Colorado</p>
+
+								<strong>Rating:</strong>
+								<div class="star-rating" title="Rated 2.5 out of 5"><span style="width:50%"><strong class="rating">2.5.00</strong> out of 5</span></div>
+							</div>
+
+							<div class="product">
+								<a href="#">
+									<figure class="product-poster"><img src="{% static 'products_img/corona.jpg' %}" alt="#"></figure>
+									<div class="product-title">Corona Extra</div>
+								</a>
+								<p>Mexican</p>
+
+								<strong>Rating:</strong>
+								<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div>
+							</div>
+						</div> <!-- .product-list -->
+
+						
+					</div>
+				</div> <!-- .container -->
+			</main>
+		</div>
+
+		<!-- Default snippet for navigation -->
+
+	</body>
+    <footer>
+        <div class="pagination col-md-offset-5">
+							<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+							<span class="page-number current">1</span>
+							<!-- <a href="#" class="page-number">2</a> -->
+							<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
+        </div>
+    </footer>
+
+</html>
