@@ -14,6 +14,8 @@
 		<!--<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script src="https://use.fontawesome.com/d3a17e6b80.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<!-- Loading main css file -->
 		<link rel="stylesheet" href="{% static 'review.css' %}">
@@ -28,18 +30,12 @@
 
 	<body>
 
-		<nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><i class="fa fa-beer" aria-hidden="true"></i> BeerVector </a>
+            <a class="navbar-brand" href="#"><i style="font-size: 30px; color: #E75926;" class="fa fa-beer" aria-hidden="true"></i> BeerVector</a>
         </div>
-         
+
         <!--
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -48,25 +44,79 @@
         </div>--><!--/.nav-collapse -->
       </div>
     </nav>
-        
-		<div class="col-md-12">
-           
-            
+
+
+
+            <br />
+            <br />
+        <div class = "col-md-12">
 			<main class="main-content">
 				<div class="container">
 					<div class="page">
-                        
+
                         <br />
                         <br />
-                        
+                        <div class="col-md-offset-10">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New Product</button>
+                        </div>
+
+                           <!-- Add New Product Modal -->
+                          <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                      <!-- Modal content-->
+                                <div class="modal-content" style="background-color: #FCFCFC">
+                                    <div class="modal-body">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <div class="form-group">
+                                              <form class="register-form" action="#">
+                                                <h3 style="text-align: center">Add New Product</h3>
+
+                                                <label for="beername">Beer name:</label>
+                                                    <input type="text" placeholder="" id="beername" class="form-control"/> <br/>
+
+
+																								<label for="description">Decription:</label>
+		                                                    <textarea class="form-control" rows="2" id="description" class="form-control"></textarea><br/>
+
+
+                                                <label for="brewery">Brewery:</label>
+                                                    <input type="text" placeholder="" id="brewery" class="form-control"/> <br/>
+
+                                                <label for="sel1">Select style: </label>
+                                                      <select class="form-control" id="sel1" >
+                                                        <option>Ale</option>
+                                                        <option>Lager</option>
+                                                        <option>Stout</option>
+                                                        <option>IPA</option>
+                                                      </select>
+                                                  <br/>
+
+                                                <label for="abv">ABV:</label>
+                                                    <input type="text" placeholder="" id="abv" class="form-control"/><br/>
+
+
+
+                                                <button>Add</button>
+
+                                              </form>
+                                            </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                         </div>
+
+
                          <!-- Sorter /Filter -->
-                        <ul class="nav nav-pills col-md-offset-4">
-                            <li class="active"><a data-toggle="pill" href="#">Highest Rated</a></li>
-                            <li><a data-toggle="pill" href="#">Recently Reviewed</a></li>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#">Highest Rated</a></li>
+                            <li><a data-toggle="tab" href="#">Recently Reviewed</a></li>
                         </ul>
-                        
+
                         <br />
                         <br />
+
 
 						<div class="product-list">
 							<div class="product">
@@ -74,22 +124,22 @@
 									<figure class="product-poster"><img src="{% static 'products_img/stella.jpg' %}" alt="#"></figure>
 									<div class="product-title">Stella Artois</div>
 								</a>
-								<p>Belgian</p>
+								<!--<p>Belgian</p> -->
 
-                                <strong>Rating:</strong>
-											<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
+
+								<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div> (268 reviews)
 
 							</div>
 
+
 							<div class="product">
 								<a href="#">
-									<figure class="product-poster"><img src="{% static 'products_img/heineken.jpg' %}" alt="#"></figure>
+									<figure class="product-poster"><img style="height: 250px" src="{% static 'products_img/heineken.jpg' %}" alt="#"></figure>
 									<div class="product-title">Heineken</div>
 								</a>
-								<p>Dutch</p>
+								<!-- <p>Dutch</p> -->
 
-                                <strong>Rating:</strong>
-											<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div>
+								<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div> (1,738 reviews)
 
 							</div>
 
@@ -98,10 +148,10 @@
 									<figure class="product-poster"><img src="{% static 'products_img/sam_adams.jpg' %}" alt="#"></figure>
 									<div class="product-title">Samuel Adams</div>
 								</a>
-								<p>Boston</p>
+								<!--<p>Boston</p> -->
 
-                      <strong>Rating:</strong>
-											<div class="star-rating" title="Rated 1.00 out of 5"><span style="width:20%"><strong class="rating">1.00</strong> out of 5</span></div>
+
+				                    <div class="star-rating" title="Rated 1.00 out of 5"><span style="width:20%"><strong class="rating">1.00</strong> out of 5</span></div> (14 reviews)
 
 							</div>
 
@@ -110,10 +160,10 @@
 									<figure class="product-poster"><img src="{% static 'products_img/budweiser.jpg' %}" alt="#"></figure>
 									<div class="product-title">Budweiser</div>
 								</a>
-								<p>St Loius, Missouri</p>
+								<!-- <p>St Loius, Missouri</p> -->
 
-									<strong>Rating:</strong>
-									<div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div>
+
+									<div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div> (59 reviews)
 
 							</div>
 
@@ -122,10 +172,10 @@
 									<figure class="product-poster"><img src="{% static 'products_img/guinness.jpg' %}" alt="#"></figure>
 									<div class="product-title">Guinness</div>
 								</a>
-								<p>Irish</p>
+								<!--<p>Irish</p> -->
 
-								<strong>Rating:</strong>
-								<div class="star-rating" title="Rated 5.00 out of 5"><span style="width:100%"><strong class="rating">5.00</strong> out of 5</span></div>
+
+								<div class="star-rating" title="Rated 5.00 out of 5"><span style="width:100%"><strong class="rating">5.00</strong> out of 5</span></div> (1 review)
 
 							</div>
 
@@ -134,10 +184,10 @@
 									<figure class="product-poster"><img src="{% static 'products_img/coors_light.jpg' %}" alt="#"></figure>
 									<div class="product-title">Coors Light</div>
 								</a>
-								<p>Milwaukee, WI</p>
+								<!--<p>Milwaukee, WI</p> -->
 
-								<strong>Rating:</strong>
-								<div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div>
+
+								<div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div> (96 reviews)
 							</div>
 
 							<div class="product">
@@ -145,10 +195,10 @@
 									<figure class="product-poster"><img src="{% static 'products_img/blue_moon.jpg' %}" alt="#"></figure>
 									<div class="product-title">Blue Moon</div>
 								</a>
-								<p>Golden, Colorado</p>
+								<!--<p>Golden, Colorado</p> -->
 
-								<strong>Rating:</strong>
-								<div class="star-rating" title="Rated 2.5 out of 5"><span style="width:50%"><strong class="rating">2.5.00</strong> out of 5</span></div>
+
+								<div class="star-rating" title="Rated 2.5 out of 5"><span style="width:50%"><strong class="rating">2.5.00</strong> out of 5</span></div> (703 reviews)
 							</div>
 
 							<div class="product">
@@ -156,28 +206,32 @@
 									<figure class="product-poster"><img src="{% static 'products_img/corona.jpg' %}" alt="#"></figure>
 									<div class="product-title">Corona Extra</div>
 								</a>
-								<p>Mexican</p>
+								<!-- <p>Mexican</p> -->
 
-								<strong>Rating:</strong>
-								<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div>
+
+								<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div> (4 reviews)
 							</div>
 						</div> <!-- .product-list -->
 
-						
+
 					</div>
 				</div> <!-- .container -->
 			</main>
-		</div>
+            </div>
+
 
 		<!-- Default snippet for navigation -->
 
 	</body>
     <footer>
-        <div class="pagination col-md-offset-5">
-							<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
-							<span class="page-number current">1</span>
-							<!-- <a href="#" class="page-number">2</a> -->
-							<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
+        <div class="pagination col-md-4 col-md-offset-4">
+                    <a href="#" class="page-number prev"><i class="fa fa-angle-double-left"></i></a>
+					<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+					<span class="page-number current">1</span>
+					<!-- <a href="#" class="page-number">2</a> -->
+					<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
+                    <a href="#" class="page-number next"><i class="fa fa-angle-double-right"></i></a>
+
         </div>
     </footer>
 

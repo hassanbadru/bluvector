@@ -280,6 +280,13 @@ ul.arrow {
       ul.arrow li a:hover {
         color: #ffaa3c; }
 
+.navbar-brand {
+    font-size: 21px;
+    color: #EEE;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 5px
+}
+
 /* Star rating style */
 .star-rating {
   display: inline-block;
@@ -291,18 +298,19 @@ ul.arrow {
   font-size: 15px;
   font-size: 1em;
   width: 4.7em;
-  font-family: "FontAwesome"; }
+  font-family: "FontAwesome"; 
+  margin-left: 30px}
 
 .star-rating:before {
   content: "\f005\f005\f005\f005\f005";
-  float: left;
+  float: center;
   top: 0;
   left: 0;
   position: absolute; }
 
 .star-rating span {
   overflow: hidden;
-  float: left;
+  float: center;
   top: 0;
   left: 0;
   position: absolute;
@@ -1199,7 +1207,10 @@ ul.arrow {
 .page .product-title {
   font-size: 36px;
   font-size: 2.4em;
-  font-weight: 300; }
+  font-weight: 300; 
+  text-align: center;
+  color: #AAA}
+
 
 
 .product-list {
