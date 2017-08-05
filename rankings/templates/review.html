@@ -34,6 +34,7 @@
       <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="#"><i style="font-size: 30px; color: #E75926;" class="fa fa-beer" aria-hidden="true"></i> BeerVector</a>
+						<!--<input type="text" name="search" placeholder="Search.."> -->
         </div>
 
         <!--
@@ -72,11 +73,19 @@
                                               <form class="register-form" action="#">
                                                 <h3 style="text-align: center">Add New Product</h3>
 
+
+
                                                 <label for="beername">Beer name:</label>
                                                     <input type="text" placeholder="" id="beername" class="form-control"/> <br/>
 
+																								<label for="beer_avatar">Beer Image: </label>
+																									<input class="beer_avatar" type="file" id="beer_avatar" name="beer_avatar" required="True">
 
-																								<label for="description">Decription:</label>
+																								<!--<label for="preview">Image Preview: </label> -->
+																									<img class="beer_preview" id="preview"> <br />
+
+
+																								<label for="description">Description:</label>
 		                                                    <textarea class="form-control" rows="2" id="description" class="form-control"></textarea><br/>
 
 
@@ -96,7 +105,6 @@
                                                     <input type="text" placeholder="" id="abv" class="form-control"/><br/>
 
 
-
                                                 <button>Add</button>
 
                                               </form>
@@ -110,15 +118,15 @@
 
                          <!-- Sorter /Filter -->
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#">Highest Rated</a></li>
-                            <li><a data-toggle="tab" href="#">Recently Reviewed</a></li>
+                            <li class="active"><a data-toggle="tab" href="#productview">Highest Rated</a></li>
+                            <li><a data-toggle="tab" href="#productview">Recently Reviewed</a></li>
                         </ul>
 
                         <br />
                         <br />
 
 
-						<div class="product-list">
+						<div class="product-list" id="productview">
 							<div class="product">
 								<a href="#">
 									<figure class="product-poster"><img src="{% static 'products_img/stella.jpg' %}" alt="#"></figure>
@@ -221,7 +229,7 @@
 
 
 		<!-- Default snippet for navigation -->
-
+			<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
 	</body>
     <footer>
         <div class="pagination col-md-4 col-md-offset-4">
