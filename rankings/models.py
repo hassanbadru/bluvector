@@ -29,3 +29,4 @@ class Review(models.Model):
     username = models.CharField(max_length=255)
     ranking = models.IntegerField()
     review = models.TextField()
+    #beer = models.ForeignKey(Beer, related_name="beers")
