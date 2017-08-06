@@ -16,9 +16,13 @@
 		<script src="https://use.fontawesome.com/d3a17e6b80.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rating-input/0.4.0/bootstrap-rating-input.min.js"></script>
+
+
 
 		<!-- Loading main css file -->
 		<link rel="stylesheet" href="{% static 'review.css' %}">
+    <link rel="stylesheet" href="{% static './rankings/css/star-rating.css' %}">
 
 		<!--[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
@@ -55,87 +59,137 @@
 				<div class="container">
 					<div class="page">
 
-                        <br />
-                        <br />
-                        <div class="col-md-offset-10">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New Product</button>
-                        </div>
-
-                           <!-- Add New Product Modal -->
-                          <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog">
-
-                                      <!-- Modal content-->
-                                <div class="modal-content" style="background-color: #FCFCFC">
-                                    <div class="modal-body">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <div class="form-group">
-                                              <form class="register-form" action="#">
-                                                <h3 style="text-align: center">Add New Product</h3>
 
 
-
-                                                <label for="beername">Beer name:</label>
-                                                    <input type="text" placeholder="" id="beername" class="form-control"/> <br/>
-
-																								<label for="beer_avatar">Beer Image: </label>
-																									<input class="beer_avatar" type="file" id="beer_avatar" name="beer_avatar" required="True">
-
-																								<!--<label for="preview">Image Preview: </label> -->
-																									<img class="beer_preview" id="preview"> <br />
-
-
-																								<label for="description">Description:</label>
-		                                                    <textarea class="form-control" rows="2" id="description" class="form-control"></textarea><br/>
-
-
-                                                <label for="brewery">Brewery:</label>
-                                                    <input type="text" placeholder="" id="brewery" class="form-control"/> <br/>
-
-                                                <label for="sel1">Select style: </label>
-                                                      <select class="form-control" id="sel1" >
-                                                        <option>Ale</option>
-                                                        <option>Lager</option>
-                                                        <option>Stout</option>
-                                                        <option>IPA</option>
-                                                      </select>
-                                                  <br/>
-
-                                                <label for="abv">ABV:</label>
-                                                    <input type="text" placeholder="" id="abv" class="form-control"/><br/>
-
-
-                                                <button>Add</button>
-
-                                              </form>
-                                            </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                         </div>
-
-
-
+                         <ol class="breadcrumb">
+                           <li><a href="#">Rankings</a></li>
+                           <li class="active">Product</li>
+                         </ol>
 
                         <br />
                         <br />
 
 
-						<div class="product-list" id="productview">
-							<div class="product">
-								<a href="#">
-									<figure class="product-poster"><img src="{% static 'products_img/stella.jpg' %}" alt="#"></figure>
-									<div class="product-title">Stella Artois</div>
-								</a>
+						<div class="product-list row" id="productview">
+              <div class="row">
+							<div class="product col-md-4">
+
+    								<a href="#">
+    									<figure class="product-poster"><img src="{% static 'products_img/stella.jpg' %}" alt="#"></figure>
+
+    								</a>
+
 								<!--<p>Belgian</p> -->
-
-
-								<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div> (268 reviews)
 
 							</div>
 
+              <div class="col-md-4">
+                  <div class="product-title" style="text-align: left; margin-left: 30px">Stella Artois</div><br />
+
+                  <div class="star-rating" title="Rated 3.7 out of 5"><span style="width:74%"><strong class="rating">3.70</strong> out of 5</span></div> (268 reviews)
+
+                  <div style="margin-left: 30px">
+                      <br />
+
+                      <p> <strong>Style: </strong>  Lager </p>
+                      <p> <strong>Brewery: </strong> Belgium </p>
+                      <p> <strong>ABV: </strong> 11% </p>
+                      <p> <strong>Description: </strong> Belgian Beer </p>
+
+                      <br />
+                      <button class="btn btn-primary" data-toggle="collapse" data-target="#newreview">Add Review</button>
+                  </div>
+              </div>
+
+              <!-- ADD NEWREVIEW -->
+              <div id="newreview" class="collapse col-md-4" style="background-color: #F8F6F6; padding: 20px">
+                <button type="button" class="close" data-toggle="collapse" data-target="#newreview">&times;</button>
+                <h2>Your Review</h2>
+                    <form>
+                        <label for="starating">Please Rate:  </label> <br/>
+                            <div class="rating">
+                                    <input type="radio" id="star5" name="rating" value="5" /> <label class = "full" for="star5"> </label>
+                                    <input type="radio" id="star4" name="rating" value="4"/> <label class = "full" for="star4"> </label>
+                                    <input type="radio" id="star3" name="rating" value="3"/><label class = "full" for="star3"></label>
+                                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
+                                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
+                            </div> <br/> <br/> <br/>
+
+                        <label for="username">Username:</label>
+                            <input type="text" placeholder="" id="username" class="form-control"/> <br/>
+
+
+                        <label for="comment">Comment (Optional): </label>
+                            <textarea class="form-control" rows="3" id="comment" class="form-control"></textarea> <br/>
+
+                            <button>Submit</button>
+                    </form>
+              </div>
+
+            </div>
+
 						</div> <!-- .product-list -->
+            <div>
+                 <h2>Reviews </h2>
+                <hr />
+            </div>
+
+            <div class = "row">
+              <fieldset style="padding: 20px">
+                <div class="col-md-3">
+                  <p><div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div></p>
+                  <p><strong>By: </strong>Anonymous</p>
+                  <p><strong>Posted: </strong>08/04/2017</p>
+                </div>
+                <div class="col-md-8" >
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum dapibus faucibus. Sed nec massa ante. Etiam quis tortor non lacus aliquet efficitur non varius lorem. Integer sit amet tincidunt nulla. Nunc vel sem vitae nisi laoreet pellentesque. Integer vulputate justo in blandit semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vel nibh in consectetur. Mauris ut arcu ligula.
+                  </p>
+                </div>
+              </fieldset>
+            </div>
+
+            <br />
+
+            <div class = "row">
+              <fieldset style="padding: 20px">
+                <div class="col-md-3">
+                  <p><div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div></p>
+                  <p><strong>By: </strong>Jacob</p>
+                  <p><strong>Posted: </strong>03/11/2015</p>
+                </div>
+                <div class="col-md-8">
+                  <p>
+                      Vivamus feugiat efficitur tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec eu efficitur quam. Ut vulputate eu ex a tincidunt. Nunc sed dictum tellus. Morbi ac lorem a libero ultrices tristique id vel dui. Morbi et dolor risus.
+                  </p>
+                </div>
+              </fieldset>
+            </div>
+
+            <br />
+
+            <div class = "row">
+              <fieldset style="padding: 20px">
+                <div class="col-md-3">
+                  <p><div class="star-rating" title="Rated 5.00 out of 5"><span style="width:100%"><strong class="rating">5.00</strong> out of 5</span></div></p>
+                  <p><strong>By: </strong>Kate</p>
+                  <p><strong>Posted: </strong>12/04/2011</p>
+                </div>
+                <div class="col-md-8">
+                  <p>
+                      Suspendisse a faucibus sapien. Curabitur ornare aliquet luctus. Praesent mattis tincidunt lectus vel consequat. Fusce blandit felis et leo tincidunt, sit amet mollis diam feugiat. Etiam mattis tincidunt mauris sit amet ullamcorper. Nullam eget varius elit. Donec eleifend aliquam ipsum non commodo. Praesent feugiat lobortis lorem ut fermentum. Fusce vulputate elit aliquet, fermentum neque eu, tincidunt velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                  </p>
+                </div>
+              </fieldset>
+            </div>
+
+            <nav aria-label="...">
+              <ul class="pager">
+                <li class="next"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
+                <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Newer</a></li>
+              </ul>
+            </nav>
+
 
 
 					</div>
