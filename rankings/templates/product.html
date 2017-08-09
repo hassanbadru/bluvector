@@ -95,17 +95,17 @@
 							</div>
 
               <div class="col-md-4">
-                  <div class="product-title" style="text-align: left; margin-left: 30px"> {{pdetails.name}} </div><br />
+                  <div class="product-title" style="text-align: left; margin-left: 30px"> {{beer_details.name}} </div><br />
 
                   <div class="star-rating" title="Rated 3.7 out of 5"><span style="width:74%"><strong class="rating">3.70</strong> out of 5</span></div> (268 reviews)
 
                   <div style="margin-left: 30px">
                       <br />
 
-                      <p> <strong>Style: </strong>  {{pdetails.style}} </p>
-                      <p> <strong>Brewery: </strong> {{pdetails.brewery}} </p>
-                      <p> <strong>ABV: </strong> {{pdetails.abv}} % </p>
-                      <p> <strong>Description: </strong> {{pdetails.description}} </p>
+                      <p> <strong>Style: </strong>  {{beer_details.style}} </p>
+                      <p> <strong>Brewery: </strong> {{beer_details.brewery}} </p>
+                      <p> <strong>ABV: </strong> {{beer_details.abv}} % </p>
+                      <p> <strong>Description: </strong> {{beer_details.description}} </p>
 
                       <br />
                       <button class="btn btn-primary" data-toggle="collapse" data-target="#newreview">Add Review</button>
@@ -145,23 +145,31 @@
                 <hr />
             </div>
 
+            {% if reviews %}
+            {% for feedback in reviews %}
             <div class = "row">
               <fieldset style="padding: 20px">
                 <div class="col-md-3">
-                  <p><div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div></p>
-                  <p><strong>By: </strong>Anonymous</p>
-                  <p><strong>Posted: </strong>08/04/2017</p>
+                  <p>{{feedback.ranking}}<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div></p>
+                  <p><strong>By: </strong>{{feedback.username}}</p>
+                  <p><strong>Posted: </strong>{{feedback.date}}</p>
                 </div>
                 <div class="col-md-8" >
                   <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum dapibus faucibus. Sed nec massa ante. Etiam quis tortor non lacus aliquet efficitur non varius lorem. Integer sit amet tincidunt nulla. Nunc vel sem vitae nisi laoreet pellentesque. Integer vulputate justo in blandit semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit vel nibh in consectetur. Mauris ut arcu ligula.
+                      {{feedback.comment}}
                   </p>
                 </div>
               </fieldset>
             </div>
 
             <br />
+            {% endfor %}
+            {% else %}
+              <p>No Reviews Yet</p>
+            {% endif %}
 
+
+            <!--
             <div class = "row">
               <fieldset style="padding: 20px">
                 <div class="col-md-3">
@@ -192,7 +200,7 @@
                   </p>
                 </div>
               </fieldset>
-            </div>
+            </div> -->
 
             <nav aria-label="...">
               <ul class="pager">

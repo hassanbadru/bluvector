@@ -26,7 +26,8 @@ class Review(models.Model):
     # let them input their username manually.
     username = models.CharField(max_length=255)
     ranking = models.IntegerField()
-    review = models.TextField()
-    beer = models.ForeignKey(Beer, related_name="reviews")
+    comment = models.TextField()
+    #beer = models.CharField(max_length=255, null = True)
+    beer = models.ForeignKey(Beer, related_name="reviews", null = True)
     def __str__(self):
-        return "{0} - {1}- {2}".format(self.username, self.review, self.date)
+        return "{0} - {1}- {2}".format(self.username, self.comment, self.date)

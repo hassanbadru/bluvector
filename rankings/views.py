@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from django.views.generic import DetailView
 
 from django.shortcuts import render
-from .models import Beer, Brewery
+from .models import Beer, Brewery, Review
 
 import math
 
@@ -50,5 +50,8 @@ class ProductView(TemplateView):
     def get_context_data(self, beer_id):
        context = super(ProductView, self).get_context_data()
        #context['all_beers'] = Beer.objects.all()
-       context['pdetails'] = Beer.objects.get(pk=beer_id)
+       context['beer_details'] = Beer.objects.get(pk=beer_id)
+       beer = context['beer_details']
+       context['reviews'] = Review.objects.filter(beer=beer)
+
        return context
