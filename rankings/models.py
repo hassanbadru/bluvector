@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
 
 
@@ -17,9 +16,8 @@ class Beer(models.Model):
     style = models.CharField(max_length=255)
     abv = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Alcohol by Volume")
     description = models.TextField()
-
     def __str__(self):
-        return "{0} - {1}".format(self.name, self.brewery.name)
+        return "{0}".format(self.name)
 
 
 class Review(models.Model):
@@ -29,4 +27,4 @@ class Review(models.Model):
     username = models.CharField(max_length=255)
     ranking = models.IntegerField()
     review = models.TextField()
-    #beer = models.ForeignKey(Beer, related_name="beers")
+    beer = models.ForeignKey(Beer, related_name="reviews")

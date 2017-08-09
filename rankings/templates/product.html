@@ -20,7 +20,7 @@
 
 
 		<!-- Loading main css file -->
-		<link rel="stylesheet" href="{% static 'review.css' %}">
+		<link rel="stylesheet" href="{% static './rankings/css/review.css' %}">
     <link rel="stylesheet" href="{% static './rankings/css/star-rating.css' %}">
 
 		<!--[if lt IE 9]>
@@ -33,32 +33,43 @@
 
 	<body>
 
+  <!--
+
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="#"><i style="font-size: 30px; color: #E75926;" class="fa fa-beer" aria-hidden="true"></i> BeerVector</a>
-						<!--<input type="text" name="search" placeholder="Search.."> -->
+
         </div>
 
-        <!--
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Log In</a></li>
-          </ul>
-        </div>--><!--/.nav-collapse -->
       </div>
-    </nav>
+    </nav>  -->
+
+    <!--<input type="text" name="search" placeholder="Search.."> -->
+
+    <!--
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Log In</a></li>
+      </ul>
+    </div>--><!--/.nav-collapse -->
 
 
 
             <br />
             <br />
-        <div class = "col-md-12">
+  <div class = "col-md-12">
 			<main class="main-content">
 				<div class="container">
 					<div class="page">
 
+                        <ol class="breadcrumb">
+                          <li><a href=".."> Back </a></li>
+                        </ol>
 
+                        <br />
+                        <br />
+                        <!--
 
                          <ol class="breadcrumb">
                            <li><a href="..">Rankings</a></li>
@@ -66,7 +77,8 @@
                          </ol>
 
                         <br />
-                        <br />
+                        <br /> -->
+
 
 
 						<div class="product-list row" id="productview">
@@ -194,11 +206,12 @@
 					</div>
 				</div> <!-- .container -->
 			</main>
-            </div>
+  </div>
 
 
 		<!-- Default snippet for navigation -->
 			<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+
 	</body>
 
 </html>

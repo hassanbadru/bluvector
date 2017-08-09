@@ -18,7 +18,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<!-- Loading main css file -->
-		<link rel="stylesheet" href="{% static 'review.css' %}">
+		<link rel="stylesheet" href="{% static './rankings/css/review.css' %}">
 
 		<!--[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
@@ -28,12 +28,12 @@
 	</head>
 
 
-	<body>
+	<body >
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"><i style="font-size: 30px; color: #E75926;" class="fa fa-beer" aria-hidden="true"></i> BeerVector</a>
+            <a class="navbar-brand" href="/"><i style="font-size: 30px; color: #E75926;" class="fa fa-beer" aria-hidden="true"></i> BeerVector</a>
 						<!--<input type="text" name="search" placeholder="Search.."> -->
         </div>
 
@@ -48,15 +48,34 @@
 
 
 
-            <br />
-            <br />
-        <div class = "col-md-12">
+
+
+    <div class = "col-md-12" id="rev">
+
+
+					<h1>Ranking - All Reviews</h1>
+
+			<!--
+				<div class="intro-body">
+			    <div class="container">
+			      <div class="row">
+			        <div class="col-md-12">
+			          <h1>Beer<span class="brand-heading">Vector</span></h1>
+			          <p class="intro-text">Find and rate from worst to the best of beets</p>
+			        </div>
+			       </div>
+					 </div>
+				 </div> -->
+
 			<main class="main-content">
 				<div class="container">
 					<div class="page">
 
-                        <br />
-                        <br />
+
+
+
+
+
                         <div class="col-md-offset-10">
                             <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New Product</button>
                         </div>
@@ -88,16 +107,28 @@
 																								<label for="description">Description:</label>
 		                                                    <textarea class="form-control" rows="2" id="description" class="form-control"></textarea><br/>
 
-
+																								<!--
                                                 <label for="brewery">Brewery:</label>
                                                     <input type="text" placeholder="" id="brewery" class="form-control"/> <br/>
+																								-->
 
-                                                <label for="sel1">Select style: </label>
+																								<label for="brewery">Brewery: </label>
+		                                                <select class="form-control" id="brewery" >
+																														{% for brewery in breweries %}
+			                                                        <option> {{brewery}} </option>
+																														{% endfor %}
+
+		                                                      </select>
+		                                                  <br/>
+
+																								<label for="sel1">Select style: </label>
                                                       <select class="form-control" id="sel1" >
-                                                        <option>Ale</option>
-                                                        <option>Lager</option>
-                                                        <option>Stout</option>
-                                                        <option>IPA</option>
+
+																												<option>Ale</option>
+																												<option>Lager</option>
+																												<option>Stout</option>
+																												<option>IPA</option>
+
                                                       </select>
                                                   <br/>
 
@@ -127,36 +158,50 @@
 
 
 						<div class="product-list" id="productview">
+
+							{% if all_beers %}
+										{% for beer in all_beers %}
+												<div class="product">
+													<a onclick = loadDoc()>
+														<figure class="product-poster"><img style="height: 250px" src="{% static 'products_img/heineken.jpg' %}" alt="#"></figure>
+														<div class="product-title"> {{beer.name}} </div>
+													</a>
+													<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div> (1,738 reviews)
+												</div>
+										{% endfor %}
+
+							{% else %}
+								<p style="text-align: center">No Item to Display</p>
+							{% endif %}
+
+							<!--
+
 							<div class="product">
-								<a href="/view-product">
+								<a onclick = loadDoc()>
 									<figure class="product-poster"><img src="{% static 'products_img/stella.jpg' %}" alt="#"></figure>
 									<div class="product-title">Stella Artois</div>
 								</a>
-								<!--<p>Belgian</p> -->
-
-
 								<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div> (268 reviews)
-
 							</div>
 
 
+							{% for beer in all_beers %}
 							<div class="product">
 								<a href="#">
 									<figure class="product-poster"><img style="height: 250px" src="{% static 'products_img/heineken.jpg' %}" alt="#"></figure>
-									<div class="product-title">Heineken</div>
+									<div class="product-title"> {{beer}}</div>
 								</a>
-								<!-- <p>Dutch</p> -->
-
 								<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div> (1,738 reviews)
-
 							</div>
+							{% endfor %}
+
+
 
 							<div class="product">
 								<a href="#">
 									<figure class="product-poster"><img src="{% static 'products_img/sam_adams.jpg' %}" alt="#"></figure>
 									<div class="product-title">Samuel Adams</div>
 								</a>
-								<!--<p>Boston</p> -->
 
 
 				                    <div class="star-rating" title="Rated 1.00 out of 5"><span style="width:20%"><strong class="rating">1.00</strong> out of 5</span></div> (14 reviews)
@@ -168,7 +213,7 @@
 									<figure class="product-poster"><img src="{% static 'products_img/budweiser.jpg' %}" alt="#"></figure>
 									<div class="product-title">Budweiser</div>
 								</a>
-								<!-- <p>St Loius, Missouri</p> -->
+
 
 
 									<div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div> (59 reviews)
@@ -180,7 +225,7 @@
 									<figure class="product-poster"><img src="{% static 'products_img/guinness.jpg' %}" alt="#"></figure>
 									<div class="product-title">Guinness</div>
 								</a>
-								<!--<p>Irish</p> -->
+
 
 
 								<div class="star-rating" title="Rated 5.00 out of 5"><span style="width:100%"><strong class="rating">5.00</strong> out of 5</span></div> (1 review)
@@ -192,7 +237,7 @@
 									<figure class="product-poster"><img src="{% static 'products_img/coors_light.jpg' %}" alt="#"></figure>
 									<div class="product-title">Coors Light</div>
 								</a>
-								<!--<p>Milwaukee, WI</p> -->
+
 
 
 								<div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div> (96 reviews)
@@ -203,7 +248,7 @@
 									<figure class="product-poster"><img src="{% static 'products_img/blue_moon.jpg' %}" alt="#"></figure>
 									<div class="product-title">Blue Moon</div>
 								</a>
-								<!--<p>Golden, Colorado</p> -->
+
 
 
 								<div class="star-rating" title="Rated 2.5 out of 5"><span style="width:50%"><strong class="rating">2.5.00</strong> out of 5</span></div> (703 reviews)
@@ -214,33 +259,50 @@
 									<figure class="product-poster"><img src="{% static 'products_img/corona.jpg' %}" alt="#"></figure>
 									<div class="product-title">Corona Extra</div>
 								</a>
-								<!-- <p>Mexican</p> -->
+
 
 
 								<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div> (4 reviews)
-							</div>
+							</div> -->
 						</div> <!-- .product-list -->
 
 
 					</div>
 				</div> <!-- .container -->
 			</main>
+
+			<footer>
+	        <div class="pagination col-md-4 col-md-offset-4">
+	          <a href="#" class="page-number prev"><i class="fa fa-angle-double-left"></i></a>
+								<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+											{% for p in beer_pages %}
+											<span class="page-number current">{{p}}</span>
+											{% endfor %}
+								<!-- <a href="#" class="page-number">2</a> -->
+								<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
+	          <a href="#" class="page-number next"><i class="fa fa-angle-double-right"></i></a>
+
+	        </div>
+	    </footer>
             </div>
 
 
 		<!-- Default snippet for navigation -->
 			<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+			<script>
+						function loadDoc() {
+						  var xhttp = new XMLHttpRequest();
+						  xhttp.onreadystatechange = function() {
+						    if (this.readyState == 4 && this.status == 200) {
+						      document.getElementById("rev").innerHTML =
+						      this.responseText;
+						    }
+						  };
+						  xhttp.open("GET", "/view-product", true);
+						  xhttp.send();
+						}
+			</script>
 	</body>
-    <footer>
-        <div class="pagination col-md-4 col-md-offset-4">
-                    <a href="#" class="page-number prev"><i class="fa fa-angle-double-left"></i></a>
-					<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
-					<span class="page-number current">1</span>
-					<!-- <a href="#" class="page-number">2</a> -->
-					<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
-                    <a href="#" class="page-number next"><i class="fa fa-angle-double-right"></i></a>
 
-        </div>
-    </footer>
 
 </html>
