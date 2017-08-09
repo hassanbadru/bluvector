@@ -162,7 +162,7 @@
 							{% if all_beers %}
 										{% for beer in all_beers %}
 												<div class="product">
-													<a onclick = loadDoc()>
+													<a href = "{% url 'view-product' beer.id %}">
 														<figure class="product-poster"><img style="height: 250px" src="{% static 'products_img/heineken.jpg' %}" alt="#"></figure>
 														<div class="product-title"> {{beer.name}} </div>
 													</a>

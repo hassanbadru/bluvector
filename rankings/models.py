@@ -28,3 +28,5 @@ class Review(models.Model):
     ranking = models.IntegerField()
     review = models.TextField()
     beer = models.ForeignKey(Beer, related_name="reviews")
+    def __str__(self):
+        return "{0} - {1}- {2}".format(self.username, self.review, self.date)

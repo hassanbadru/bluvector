@@ -47,3 +47,8 @@ class ReviewView(TemplateView):
 
 class ProductView(TemplateView):
     template_name = 'product.html'
+    def get_context_data(self, beer_id):
+       context = super(ProductView, self).get_context_data()
+       #context['all_beers'] = Beer.objects.all()
+       context['pdetails'] = Beer.objects.get(pk=beer_id)
+       return context

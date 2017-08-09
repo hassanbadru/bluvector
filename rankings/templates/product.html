@@ -33,7 +33,7 @@
 
 	<body>
 
-  <!--
+
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -43,7 +43,7 @@
         </div>
 
       </div>
-    </nav>  -->
+    </nav>
 
     <!--<input type="text" name="search" placeholder="Search.."> -->
 
@@ -64,7 +64,7 @@
 					<div class="page">
 
                         <ol class="breadcrumb">
-                          <li><a href=".."> Back </a></li>
+                          <li><a href="../.."> Back </a></li>
                         </ol>
 
                         <br />
@@ -95,17 +95,17 @@
 							</div>
 
               <div class="col-md-4">
-                  <div class="product-title" style="text-align: left; margin-left: 30px">Stella Artois</div><br />
+                  <div class="product-title" style="text-align: left; margin-left: 30px"> {{pdetails.name}} </div><br />
 
                   <div class="star-rating" title="Rated 3.7 out of 5"><span style="width:74%"><strong class="rating">3.70</strong> out of 5</span></div> (268 reviews)
 
                   <div style="margin-left: 30px">
                       <br />
 
-                      <p> <strong>Style: </strong>  Lager </p>
-                      <p> <strong>Brewery: </strong> Belgium </p>
-                      <p> <strong>ABV: </strong> 11% </p>
-                      <p> <strong>Description: </strong> Belgian Beer </p>
+                      <p> <strong>Style: </strong>  {{pdetails.style}} </p>
+                      <p> <strong>Brewery: </strong> {{pdetails.brewery}} </p>
+                      <p> <strong>ABV: </strong> {{pdetails.abv}} % </p>
+                      <p> <strong>Description: </strong> {{pdetails.description}} </p>
 
                       <br />
                       <button class="btn btn-primary" data-toggle="collapse" data-target="#newreview">Add Review</button>
