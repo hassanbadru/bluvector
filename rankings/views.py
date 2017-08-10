@@ -23,11 +23,20 @@ class ReviewView(TemplateView):
        p = int(math.ceil(float(num_beers)/8))
        context['beer_pages'] = [i for i in range(1, p+1)]
 
-       rating_reviewers = []
+       num_of_reviews = []
+       t_ranking = []
        for beer in context['all_beers']:
-           rating_reviewers.append(len(Review.objects.filter(beer=beer)))
-       context['rating_reviewers'] = rating_reviewers
-       context['riterator'] = zip(context['rating_reviewers'], context['all_beers'])
+           n_reviews = len(Review.objects.filter(beer=beer))
+           num_of_reviews.append(n_reviews)
+
+           if n_reviews > 0:
+               avg_rating = (sum([x.ranking for x in Review.objects.filter(beer=beer)]) / float(n_reviews)) * 20
+           else:
+               avg_rating = 0
+           t_ranking.append(avg_rating)
+
+
+       context['riterator'] = zip(num_of_reviews, context['all_beers'], t_ranking)
 
 
        '''

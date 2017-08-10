@@ -160,13 +160,14 @@
 
 							{% if all_beers %}
 
-										{% for t_ratings, beer in riterator %}
+										{% for t_ratings, beer, t_ranking in riterator %}
 												<div class="product">
 													<a href = "{% url 'view-product' beer.id %}">
 														<figure class="product-poster"><img style="height: 350px" src="{% static 'products_img/any_beer.jpg' %}" alt="#"></figure>
 														<div class="product-title"> {{beer.name}} </div>
 													</a>
-													<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div>
+
+													<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:{{t_ranking}}%"><strong class="rating">3.00</strong> out of 5</span></div>
 													{% if t_ratings %}
 															{% if t_ratings == 1 %}
 				                    			({{t_ratings}} review)
@@ -174,7 +175,7 @@
 																	({{t_ratings}} reviews)
 															{% endif %}
 				                  {% else %}
-				                    (No Reviews Yet)
+				                    (No Review Yet)
 				                  {% endif %}
 												</div>
 										{% endfor %}
