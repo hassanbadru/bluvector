@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
+from django.core.urlresolvers import reverse
 
 
 class Brewery(models.Model):
@@ -16,6 +17,9 @@ class Beer(models.Model):
     style = models.CharField(max_length=255)
     abv = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Alcohol by Volume")
     description = models.TextField()
+    #total_ranking = models.IntegerField(null = True)
+
+
     def __str__(self):
         return "{0}".format(self.name)
 
@@ -25,9 +29,16 @@ class Review(models.Model):
     # For this exercise we don't need to register users,
     # let them input their username manually.
     username = models.CharField(max_length=255)
-    ranking = models.IntegerField()
+    ranking = models.IntegerField(null = True)
     comment = models.TextField()
     #beer = models.CharField(max_length=255, null = True)
     beer = models.ForeignKey(Beer, related_name="reviews", null = True)
+
+    def true_ranking(self):
+        return self.ranking * 20
+
+    def total_ranking(self):
+        return sum([i for i in self.ranking])
+
     def __str__(self):
-        return "{0} - {1}- {2}".format(self.username, self.comment, self.date)
+        return "{0}".format(self.ranking)

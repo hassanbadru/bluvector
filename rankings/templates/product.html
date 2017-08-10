@@ -38,7 +38,7 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"><i style="font-size: 30px; color: #E75926;" class="fa fa-beer" aria-hidden="true"></i> BeerVector</a>
+            <a class="navbar-brand" href="../.."><i style="font-size: 30px; color: #E75926;" class="fa fa-beer" aria-hidden="true"></i> BeerVector</a>
 
         </div>
 
@@ -86,7 +86,7 @@
 							<div class="product col-md-4">
 
     								<a href="#">
-    									<figure class="product-poster"><img src="{% static 'products_img/stella.jpg' %}" alt="#"></figure>
+    									<figure class="product-poster"><img style="height: 350px" src="{% static 'products_img/any_beer.jpg' %}" alt="#"></figure>
 
     								</a>
 
@@ -97,7 +97,19 @@
               <div class="col-md-4">
                   <div class="product-title" style="text-align: left; margin-left: 30px"> {{beer_details.name}} </div><br />
 
-                  <div class="star-rating" title="Rated 3.7 out of 5"><span style="width:74%"><strong class="rating">3.70</strong> out of 5</span></div> (268 reviews)
+                  <div class="star-rating"><span style=width:{{t_ranking}}%><strong class="rating">3.70</strong> out of 5</span></div>
+    
+                  {% if num_of_reviews %}
+                      {% if num_of_reviews == 1 %}
+                          ({{num_of_reviews}} review)
+                      {% else %}
+                          ({{num_of_reviews}} reviews)
+                      {% endif %}
+                  {% else %}
+                    (No Reviews Yet)
+                  {% endif %}
+
+
 
                   <div style="margin-left: 30px">
                       <br />
@@ -108,6 +120,7 @@
                       <p> <strong>Description: </strong> {{beer_details.description}} </p>
 
                       <br />
+
                       <button class="btn btn-primary" data-toggle="collapse" data-target="#newreview">Add Review</button>
                   </div>
               </div>
@@ -116,7 +129,11 @@
               <div id="newreview" class="collapse col-md-4" style="background-color: #F8F6F6; padding: 20px">
                 <button type="button" class="close" data-toggle="collapse" data-target="#newreview">&times;</button>
                 <h2>Your Review</h2>
-                    <form>
+                <div class="form-group">
+                    <form action="" method="post">
+                      {% csrf_token %}
+                      {{ forms.as_p }}
+                      <!--
                         <label for="starating">Please Rate:  </label> <br/>
                             <div class="rating">
                                     <input type="radio" id="star5" name="rating" value="5" /> <label class = "full" for="star5"> </label>
@@ -131,10 +148,11 @@
 
 
                         <label for="comment">Comment (Optional): </label>
-                            <textarea class="form-control" rows="3" id="comment" class="form-control"></textarea> <br/>
+                            <textarea class="form-control" rows="3" id="comment" class="form-control"></textarea> <br/> -->
 
-                            <button>Submit</button>
+                            <button type = "submit">Submit</button>
                     </form>
+                    </div>
               </div>
 
             </div>
@@ -150,7 +168,7 @@
             <div class = "row">
               <fieldset style="padding: 20px">
                 <div class="col-md-3">
-                  <p>{{feedback.ranking}}<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div></p>
+                  <p><div class="star-rating" title="Rated 4.00 out of 5"><span style="width:{{feedback.true_ranking}}%"><strong class="rating">4.00</strong> out of 5</span></div></p>
                   <p><strong>By: </strong>{{feedback.username}}</p>
                   <p><strong>Posted: </strong>{{feedback.date}}</p>
                 </div>
@@ -165,7 +183,8 @@
             <br />
             {% endfor %}
             {% else %}
-              <p>No Reviews Yet</p>
+              <br />
+              <p style="text-align: center">No Reviews Yet</p>
             {% endif %}
 
 

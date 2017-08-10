@@ -89,28 +89,27 @@
                                     <div class="modal-body">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             <div class="form-group">
-                                              <form class="register-form" action="#">
+                                              <form class="register-form" action="" method="post">
                                                 <h3 style="text-align: center">Add New Product</h3>
+																								{% csrf_token %}
+																								{{forms.as_p}}
 
 
-
+																								<!--
                                                 <label for="beername">Beer name:</label>
                                                     <input type="text" placeholder="" id="beername" class="form-control"/> <br/>
 
 																								<label for="beer_avatar">Beer Image: </label>
-																									<input class="beer_avatar" type="file" id="beer_avatar" name="beer_avatar" required="True">
+																									<input class="beer_avatar" type="file" id="beer_avatar" name="beer_avatar">
 
-																								<!--<label for="preview">Image Preview: </label> -->
+
 																									<img class="beer_preview" id="preview"> <br />
 
 
 																								<label for="description">Description:</label>
 		                                                    <textarea class="form-control" rows="2" id="description" class="form-control"></textarea><br/>
 
-																								<!--
-                                                <label for="brewery">Brewery:</label>
-                                                    <input type="text" placeholder="" id="brewery" class="form-control"/> <br/>
-																								-->
+
 
 																								<label for="brewery">Brewery: </label>
 		                                                <select class="form-control" id="brewery" >
@@ -133,10 +132,10 @@
                                                   <br/>
 
                                                 <label for="abv">ABV:</label>
-                                                    <input type="text" placeholder="" id="abv" class="form-control"/><br/>
+                                                    <input type="text" placeholder="" id="abv" class="form-control"/><br/>-->
 
 
-                                                <button>Add</button>
+                                                <button type = "submit">Add</button>
 
                                               </form>
                                             </div>
@@ -160,13 +159,23 @@
 						<div class="product-list" id="productview">
 
 							{% if all_beers %}
-										{% for beer in all_beers %}
+
+										{% for t_ratings, beer in riterator %}
 												<div class="product">
 													<a href = "{% url 'view-product' beer.id %}">
-														<figure class="product-poster"><img style="height: 250px" src="{% static 'products_img/heineken.jpg' %}" alt="#"></figure>
+														<figure class="product-poster"><img style="height: 350px" src="{% static 'products_img/any_beer.jpg' %}" alt="#"></figure>
 														<div class="product-title"> {{beer.name}} </div>
 													</a>
-													<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div> (1,738 reviews)
+													<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div>
+													{% if t_ratings %}
+															{% if t_ratings == 1 %}
+				                    			({{t_ratings}} review)
+															{% else %}
+																	({{t_ratings}} reviews)
+															{% endif %}
+				                  {% else %}
+				                    (No Reviews Yet)
+				                  {% endif %}
 												</div>
 										{% endfor %}
 
