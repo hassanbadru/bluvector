@@ -41,4 +41,4 @@ class Review(models.Model):
         return sum([i for i in self.ranking])
 
     def __str__(self):
-        return "{0}".format(self.ranking)
+        return "{0} - {1} - {2}".format(self.username, self.beer, self.ranking)

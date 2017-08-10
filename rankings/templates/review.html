@@ -148,133 +148,78 @@
 
                          <!-- Sorter /Filter -->
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#productview">Highest Rated</a></li>
-                            <li><a data-toggle="tab" href="#productview">Recently Reviewed</a></li>
+                            <li class="active"><a data-toggle="tab" href="#highest_r">Highest Rated</a></li>
+                            <li><a data-toggle="tab" href="#recent_r">Recently Reviewed</a></li>
                         </ul>
 
                         <br />
                         <br />
 
 
-						<div class="product-list" id="productview">
+					<div class="tab-content">
 
-							{% if all_beers %}
+						<!-- Highest Rated -->
+							<div class="product-list tab-pane fade in active" id="highest_r">
+								{% if all_beers %}
 
-										{% for t_ratings, beer, t_ranking in riterator %}
-												<div class="product">
-													<a href = "{% url 'view-product' beer.id %}">
-														<figure class="product-poster"><img style="height: 350px" src="{% static 'products_img/any_beer.jpg' %}" alt="#"></figure>
-														<div class="product-title"> {{beer.name}} </div>
-													</a>
+											{% for t_ratings, beer, t_ranking, last_review_date in by_rating %}
+													<div class="product">
+														<a href = "{% url 'view-product' beer.id %}">
+															<figure class="product-poster"><img style="height: 350px" src="{% static 'products_img/any_beer.jpg' %}" alt="#"></figure>
+															<div class="product-title"> {{beer.name}} </div>
+														</a>
 
-													<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:{{t_ranking}}%"><strong class="rating">3.00</strong> out of 5</span></div>
-													{% if t_ratings %}
-															{% if t_ratings == 1 %}
-				                    			({{t_ratings}} review)
-															{% else %}
-																	({{t_ratings}} reviews)
-															{% endif %}
-				                  {% else %}
-				                    (No Review Yet)
-				                  {% endif %}
-												</div>
-										{% endfor %}
+														<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:{{t_ranking}}%"><strong class="rating">3.00</strong> out of 5</span></div>
+														{% if t_ratings %}
+																{% if t_ratings == 1 %}
+					                    			({{t_ratings}} review)
+																{% else %}
+																		({{t_ratings}} reviews)
+																{% endif %}
+					                  {% else %}
+					                    (No Review Yet)
+					                  {% endif %}
+													</div>
+											{% endfor %}
 
-							{% else %}
-								<p style="text-align: center">No Item to Display</p>
-							{% endif %}
-
-							<!--
-
-							<div class="product">
-								<a onclick = loadDoc()>
-									<figure class="product-poster"><img src="{% static 'products_img/stella.jpg' %}" alt="#"></figure>
-									<div class="product-title">Stella Artois</div>
-								</a>
-								<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div> (268 reviews)
-							</div>
-
-
-							{% for beer in all_beers %}
-							<div class="product">
-								<a href="#">
-									<figure class="product-poster"><img style="height: 250px" src="{% static 'products_img/heineken.jpg' %}" alt="#"></figure>
-									<div class="product-title"> {{beer}}</div>
-								</a>
-								<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div> (1,738 reviews)
-							</div>
-							{% endfor %}
-
-
-
-							<div class="product">
-								<a href="#">
-									<figure class="product-poster"><img src="{% static 'products_img/sam_adams.jpg' %}" alt="#"></figure>
-									<div class="product-title">Samuel Adams</div>
-								</a>
-
-
-				                    <div class="star-rating" title="Rated 1.00 out of 5"><span style="width:20%"><strong class="rating">1.00</strong> out of 5</span></div> (14 reviews)
+								{% else %}
+									<p style="text-align: center">No Item to Display</p>
+								{% endif %}
 
 							</div>
 
-							<div class="product">
-								<a href="#">
-									<figure class="product-poster"><img src="{% static 'products_img/budweiser.jpg' %}" alt="#"></figure>
-									<div class="product-title">Budweiser</div>
-								</a>
+							<!-- Recently Rated -->
+							<div class="product-list tab-pane fade" id="recent_r">
+								{% if all_beers %}
+											{% for t_ratings, beer, t_ranking, last_review_date in by_date %}
+													<div class="product">
+														<a href = "{% url 'view-product' beer.id %}">
+															<figure class="product-poster"><img style="height: 350px" src="{% static 'products_img/any_beer.jpg' %}" alt="#"></figure>
+															<div class="product-title"> {{beer.name}} </div>
+														</a>
+														
 
+														<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:{{t_ranking}}%"><strong class="rating">3.00</strong> out of 5</span></div>
+														{% if t_ratings %}
+																{% if t_ratings == 1 %}
+					                    			({{t_ratings}} review)
+																{% else %}
+																		({{t_ratings}} reviews)
+																{% endif %}
+					                  {% else %}
+					                    (No Review Yet)
+					                  {% endif %}
+													</div>
+											{% endfor %}
 
-
-									<div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div> (59 reviews)
+								{% else %}
+									<p style="text-align: center">No Item to Display</p>
+								{% endif %}
 
 							</div>
 
-							<div class="product">
-								<a href="#">
-									<figure class="product-poster"><img src="{% static 'products_img/guinness.jpg' %}" alt="#"></figure>
-									<div class="product-title">Guinness</div>
-								</a>
 
-
-
-								<div class="star-rating" title="Rated 5.00 out of 5"><span style="width:100%"><strong class="rating">5.00</strong> out of 5</span></div> (1 review)
-
-							</div>
-
-							<div class="product">
-								<a href="#">
-									<figure class="product-poster"><img src="{% static 'products_img/coors_light.jpg' %}" alt="#"></figure>
-									<div class="product-title">Coors Light</div>
-								</a>
-
-
-
-								<div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div> (96 reviews)
-							</div>
-
-							<div class="product">
-								<a href="#">
-									<figure class="product-poster"><img src="{% static 'products_img/blue_moon.jpg' %}" alt="#"></figure>
-									<div class="product-title">Blue Moon</div>
-								</a>
-
-
-
-								<div class="star-rating" title="Rated 2.5 out of 5"><span style="width:50%"><strong class="rating">2.5.00</strong> out of 5</span></div> (703 reviews)
-							</div>
-
-							<div class="product">
-								<a href="#">
-									<figure class="product-poster"><img src="{% static 'products_img/corona.jpg' %}" alt="#"></figure>
-									<div class="product-title">Corona Extra</div>
-								</a>
-
-
-
-								<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:60%"><strong class="rating">3.00</strong> out of 5</span></div> (4 reviews)
-							</div> -->
-						</div> <!-- .product-list -->
+					</div>
 
 
 					</div>
