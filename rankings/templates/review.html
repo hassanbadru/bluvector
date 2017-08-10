@@ -197,7 +197,7 @@
 															<figure class="product-poster"><img style="height: 350px" src="{% static 'products_img/any_beer.jpg' %}" alt="#"></figure>
 															<div class="product-title"> {{beer.name}} </div>
 														</a>
-														
+
 
 														<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:{{t_ranking}}%"><strong class="rating">3.00</strong> out of 5</span></div>
 														{% if t_ratings %}
@@ -226,19 +226,19 @@
 				</div> <!-- .container -->
 			</main>
 
+			<!--
 			<footer>
 	        <div class="pagination col-md-4 col-md-offset-4">
 	          <a href="#" class="page-number prev"><i class="fa fa-angle-double-left"></i></a>
 								<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
 											{% for p in beer_pages %}
-											<span class="page-number current">{{p}}</span>
+											<a href="#" class="page-number current">{{p}}</a>
 											{% endfor %}
-								<!-- <a href="#" class="page-number">2</a> -->
 								<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
 	          <a href="#" class="page-number next"><i class="fa fa-angle-double-right"></i></a>
 
 	        </div>
-	    </footer>
+	    </footer> -->
             </div>
 
 

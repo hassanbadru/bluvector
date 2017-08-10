@@ -8,7 +8,8 @@ urlpatterns = [
     url(r'^view-product/(?P<beer_id>[0-9]+)/$', views.ProductView.as_view(), name='view-product'),
 
     #review form
-    #url(r'^view-product/addreview/$', views.ProductView.review_form, name='addreview')
+    #url(r'^view-product/addreview/$', views.ProductView.as_view(), name='addreview')
+    #url(r'^view-product/addreview/$', views.ProductView.as_view(), name='addreview'),
     #url(r'^view-product/addreview/$', views.ProductView.review_form, name='addreview')
 
     #product form

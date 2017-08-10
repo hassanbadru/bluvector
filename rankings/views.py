@@ -4,18 +4,28 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 
 from django.shortcuts import render, redirect
-from .models import Beer, Brewery, Review
+from django.http import HttpResponse, HttpResponseRedirect
 
+from .models import Beer, Brewery, Review
 from .forms import ReviewForm, ProductForm
 
 import math
-
 from datetime import *
 
 g_variables = {}
 
 class ReviewView(TemplateView):
     template_name = 'review.html'
+
+    def post(self, request, *args, **kwargs):
+        product_form = ReviewForm(request.POST or None)
+        if product_form.is_valid():
+            save_form = product_form.save(commit = False)
+            save_form.save()
+            print(save_form)
+        #return HttpResponse()
+        return HttpResponseRedirect("/")
+
     def get_context_data(self, **kwargs):
        context = super(ReviewView, self).get_context_data(**kwargs)
        context['all_beers'] = Beer.objects.all()
@@ -59,7 +69,7 @@ class ReviewView(TemplateView):
 
 
        #self.request.POST
-       context['forms'] = ProductForm(self.request.POST or None)
+       context['forms'] = ProductForm()
        return context
 
 
@@ -69,23 +79,57 @@ class ReviewView(TemplateView):
 #View of Product and all feedback
 class ProductView(TemplateView):
     template_name = 'product.html'
+
     def get_context_data(self, beer_id):
        context = super(ProductView, self).get_context_data()
        #context['all_beers'] = Beer.objects.all()
        context['beer_details'] = Beer.objects.get(pk=beer_id)
        beer = context['beer_details']
 
-       context['reviews'] = Review.objects.filter(beer=beer)
+       context['reviews'] = sorted(Review.objects.filter(beer=beer), reverse= True)
 
        t_ranks = [i.ranking for i in context['reviews']]
+
        context['num_of_reviews'] = len(t_ranks)
+
        if len(t_ranks) > 0:
            context['t_ranking'] = sum(t_ranks)/float(len(t_ranks)) * 20
        else:
            context['t_ranking'] = 0
+       #print(self.request)
 
-       context['forms'] = ReviewForm(self.request.POST or None)
-       if context['forms'].is_valid():
-           save_form = context['forms'].save(commit = False)
-           save_form.save()
+       context['forms'] = ReviewForm()
        return context
+
+    def post(self, request, *args, **kwargs):
+        #context = super(ProductView, self).get_context_data()
+        feedback_form = ReviewForm(request.POST or None)
+        if feedback_form.is_valid():
+            save_form = feedback_form.save(commit = False)
+            save_form.save()
+            print(save_form)
+            #return HttpResponse()
+            return HttpResponseRedirect("/")
+
+
+
+'''
+   def get(self, request):
+       feedback_form = ReviewForm(request.POST)
+       if feedback_form.is_valid():
+           save_form = feedback_form.save(commit = False)
+           save_form.save()
+           # <view logic>
+       return HttpResponse('result')
+
+   def get(self, request, *args, **kwargs):
+       form = self.ReviewForm(initial={'key': 'value'})
+       return render(request, self.template_name, {'form': form})
+
+   def post(self, request, *args, **kwargs):
+       form = self.ReviewForm(request.POST)
+       if form.is_valid():
+           return HttpResponseRedirect('/success/')
+
+       return render(request, self.template_name, {'form': form})
+'''

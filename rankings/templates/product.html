@@ -130,7 +130,7 @@
                 <button type="button" class="close" data-toggle="collapse" data-target="#newreview">&times;</button>
                 <h2>Your Review</h2>
                 <div class="form-group">
-                    <form action="" method="post">
+                    <form action="" method="POST">
                       {% csrf_token %}
                       {{ forms.as_p }}
                       <!--
