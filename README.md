@@ -48,9 +48,9 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 - Product details: `class ProductView(TemplateView)`
 
 ### Models
-- Brewery - name `class Brewery(models.Model)`
-- Beer - name, brewery, style, abv, description `class Beer(models.Model)`
-- Review - date, username, ranking, comment, beer `class Review(models.Model)`
+- ***Brewery*** - name `class Brewery(models.Model)`
+- ***Beer*** - name, brewery, style, abv, description `class Beer(models.Model)`
+- ***Review*** - date, username, ranking, comment, beer `class Review(models.Model)`
 
 ### Templates
 
