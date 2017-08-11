@@ -33,13 +33,13 @@ Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, sty
  - The page automatically shows your recently left review.
  - You can go back to view all Beers & ratings.
 
-### Add Product
+### Add New Beer
 While viewing highest rated or recently reviewed items, you can add new items for rating and review. When adding new beers, you would be prompted to fill out details about the beer and then to submit or close form.
-- Click "Add Product" button to show review forms, you can submit or close forms.
+- Click "Add New Beer" button to show review forms, you can submit or close forms.
 - A brewery is selected from list of Breweries featured on the app.
 - Breweries are chosen and added to database my admin.
 - Does not accept Alcohol per Volume (ABV) entries greater than 99.
-- After adding product, you shall be taken to product page to leave review.
+- After adding a beer, you shall be taken to that beer's page to leave review.
 
 ## Admin Interface
 Only an administrator can add Breweries. An administrator can also add, modify or delete beers and beer reviews.
@@ -51,9 +51,10 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 - Template files: `bv_exercise/rankings/rankings/templates`
 - Static css: `bv_exercise/rankings/rankings/css`
 - Static images: `bv_exercise/rankings/rankings/products_img`
+
 ### Views
 - Beer Ranking - All Reviews: `class ReviewView(TemplateView)`
-- Product details: `class ProductView(TemplateView)`
+- Beer details: `class ProductView(TemplateView)`
 
 ### Models
 - ***Brewery*** - name `class Brewery(models.Model)`
@@ -62,7 +63,7 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 
 ### Templates
 - Beer Ranking - All Reviews: `review.html`
-- Product details: `product.html`
+- Beer details: `product.html`
 
 ### Forms
 - Add New Beer: `ProductForm`
