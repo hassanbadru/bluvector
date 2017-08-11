@@ -43,6 +43,8 @@ While viewing highest rated or recently reviewed items, you can add new items fo
 Only an administrator can add Breweries. An administrator can also add, modify or delete beers and beer reviews
 
 ## Features
+Project Name: bv_exercise, App Name: rankings
+Preloaded data: `beerlist.json`
 ### Views
 - Beer Ranking - All Reviews: `class ReviewView(TemplateView)`
 - Product details: `class ProductView(TemplateView)`
