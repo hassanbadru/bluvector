@@ -19,30 +19,30 @@ structure for the application
 
 ## How it works (Expectations)
 ### View Product 
- Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. This page also shows the name, number of reviews and overall rating for each beer *This page includes a heading as well as all featured breweries added by admin*
+ Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. This page also shows the name, number of reviews and overall rating for each beer. *This page includes a heading as well as all featured breweries added by admin*
  
 ### View Product Details     
 Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, style, ABV, description & overall rating) as well as any reviews (rating, username of reviewer, time of comment & comments left) that have been written for it. 
-- Each product shows a maximum of 4 reviews at once but allows you scroll with footer navigation
-- Each product detail includes the number of review, but when there is no review yet, it shows "No Review Yet"
+- Each product shows a maximum of 4 reviews at once but allows you scroll with footer navigation.
+- Each product detail includes the number of review, but when there is no review yet, it shows "No Review Yet".
     
  ### Leave Review
  When viewing a beer, you have an option leave a review for that beer. When reviewing, you would provide a 1 to 5 rating for the beer as well as an optional comment section below.
  - Click "Leave Review" button to show review forms, you can submit or close forms.
- - Username and star rating are required on form
- - The page automatically shows your recently left review
- - You can go back to view all Beers & ratings
+ - Username and star rating are required on form.
+ - The page automatically shows your recently left review.
+ - You can go back to view all Beers & ratings.
 
 ### Add Product
 While viewing highest rated or recently reviewed items, you can add new items for rating and review. When adding new beers, you would be prompted to fill out details about the beer and then to submit or close form.
 - Click "Add Product" button to show review forms, you can submit or close forms.
-- A brewery is selected from list of Breweries featured on the app
-- Breweries are chosen and added to database my admin
-- Does not accept Alcohol per Volume (ABV) entries greater than 99
+- A brewery is selected from list of Breweries featured on the app.
+- Breweries are chosen and added to database my admin.
+- Does not accept Alcohol per Volume (ABV) entries greater than 99.
 - After adding product, you shall be taken to product page to leave review.
 
 ## Admin Interface
-Only an administrator can add Breweries. An administrator can also add, modify or delete beers and beer reviews
+Only an administrator can add Breweries. An administrator can also add, modify or delete beers and beer reviews.
 
 ## Features
 ***Project Name:*** `bv_exercise`, ***App Name:*** `rankings`
@@ -68,5 +68,5 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template. In the meantime, I used an generic avatar/default for all Beers. Also, as the database expands, I've included an inactive footer pagination as an HTML comment.
 
 ## Other Notes
-Focus outline designed to aid with accessibility
+Focus outline designed to aid with accessibility.
 
