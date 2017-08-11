@@ -63,7 +63,7 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 - Leave Review: `ReviewForm`
 
 ## Extensibility
-In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template 
+In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template. Also, as the database expands, I've included an inactive footer pagination as an HTML comment.
 
 ## Other Notes
 Focus outline designed to aid with accessibility
