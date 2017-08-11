@@ -2,7 +2,8 @@
 
 This is an web application that allows visitors add, rate and leave reviews for beers
 ## Set Up
-
+- Download & unpack .zip file
+- Install requirements using '''​ pip install -r requirements.txt''' within command prompt
 ## Running
 
 ## Requirements
