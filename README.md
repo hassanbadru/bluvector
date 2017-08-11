@@ -39,3 +39,5 @@ While viewing highest rated or recently reviewed items, you can add new items fo
 - Does not accept Alcohol per Volume (ABV) entries greater than 999
 - After adding product, you shall be taken to product page to leave review.
 
+## Extensibility
+In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template 
