@@ -93,49 +93,12 @@
                                                 <h3 style="text-align: center">Add New Product</h3>
 																								{% csrf_token %}
 
-																								{{forms.as_p}}
-
-																							
-
-
-																								<!--
-                                                <label for="beername">Beer name:</label>
-                                                    <input type="text" placeholder="" id="beername" class="form-control"/> <br/>
-
-																								<label for="beer_avatar">Beer Image: </label>
-																									<input class="beer_avatar" type="file" id="beer_avatar" name="beer_avatar">
-
-
-																									<img class="beer_preview" id="preview"> <br />
-
-
-																								<label for="description">Description:</label>
-		                                                    <textarea class="form-control" rows="2" id="description" class="form-control"></textarea><br/>
-
-
-
-																								<label for="brewery">Brewery: </label>
-		                                                <select class="form-control" id="brewery" >
-																														{% for brewery in breweries %}
-			                                                        <option> {{brewery}} </option>
-																														{% endfor %}
-
-		                                                      </select>
-		                                                  <br/>
-
-																								<label for="sel1">Select style: </label>
-                                                      <select class="form-control" id="sel1" >
-
-																												<option>Ale</option>
-																												<option>Lager</option>
-																												<option>Stout</option>
-																												<option>IPA</option>
-
-                                                      </select>
-                                                  <br/>
-
-                                                <label for="abv">ABV:</label>
-                                                    <input type="text" placeholder="" id="abv" class="form-control"/><br/>-->
+																								<!--{{forms.as_p}}-->
+																								{% for field in forms %}
+																								<div class = "form-group">
+																									<div class="col-md-3">{{field.label_tag}}</div><div>{{field}}</div>
+																								</div>
+																								{% endfor %}
 
 
                                                 <button type = "submit">Add</button>
