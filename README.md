@@ -77,5 +77,5 @@ urlpatterns = [
 In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template. In the meantime, I used an generic avatar/default for all Beers. Also, as the database expands, I've included an inactive footer pagination as an HTML comment.
 
 ## Other Notes
-Focus outline designed to aid with accessibility.
+Focus outline of clickable elements have been designed to aid with accessibility.
 
