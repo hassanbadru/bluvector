@@ -3,7 +3,9 @@
 This is an web application that allows visitors add, rate and leave reviews for beers
 ## Set Up
 - Download & unpack .zip file
-- Install requirements using `​ pip install -r requirements.txt` within command prompt
+- Install requirements using `​ pip install -r requirements.txt` within command prompt or terminal
+- Run the command `python manage.py runserver"
+- Go to http://127.0.0.1:8000/ or whatever server address was provided
 ## Running
 
 ## Requirements
