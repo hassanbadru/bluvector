@@ -1,4 +1,4 @@
-# bluvector
+# Bluvector - BeerVector
 
 This is an web application that allows visitors add, rate and leave reviews for beers
 ## Set Up Running
