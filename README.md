@@ -1,12 +1,11 @@
 # bluvector
 
 This is an web application that allows visitors add, rate and leave reviews for beers
-## Set Up
+## Set Up Running
 - Download & unpack .zip file
-- Install requirements using `​ pip install -r requirements.txt` within command prompt or terminal
+- Assuming you already have python and pip, install requirements using `​ pip install -r requirements.txt` within command prompt or terminal
 - Run the command `python manage.py runserver"
-- Go to http://127.0.0.1:8000/ or whatever server address was provided
-## Running
+- On your browser, go to http://127.0.0.1:8000/ or whatever server address was provided 
 
 ## Requirements
 - [x] Use a Python framework of your choice for the server side processing
