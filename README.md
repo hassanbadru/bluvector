@@ -8,7 +8,7 @@ This is an web application that allows visitors add, rate and leave reviews for 
 - Run the command `python manage.py runserver`
 - On your browser, go to http://127.0.0.1:8000/ or whatever server address was provided in terminal
 
-*N.B: On your browser, go to http://127.0.0.1:8000/admin to access admin*
+*Note: On your browser, go to http://127.0.0.1:8000/admin to access admin*
 
 ## Requirements
 - [x] Use a Python framework of your choice for the server side processing
@@ -19,7 +19,7 @@ structure for the application
 
 ## How it works (Expectations)
 ### View Product 
- Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. 
+ Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. *This page includes a heading as well as all featured breweries added by admin*
 ### View Product Details     
 Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, style, ABV, description & overall rating) as well as and any reviews (rating, username of reviewer, time of comment & comments left)that have been written for it.
 - Each product shows a maximum of 4 reviews at once but allows you scroll with footer navigation
