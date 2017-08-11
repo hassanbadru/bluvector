@@ -48,9 +48,9 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 ***Project Name:*** `bv_exercise`, ***App Name:*** `rankings`
 ***Preloaded data:*** `beerlist.json`
 ### Folder Locations
-Template files: `bv_exercise/rankings/rankings/templates`
-Static css: `bv_exercise/rankings/rankings/css`
-Static images: `bv_exercise/rankings/rankings/products_img`
+- Template files: `bv_exercise/rankings/rankings/templates`
+- Static css: `bv_exercise/rankings/rankings/css`
+- Static images: `bv_exercise/rankings/rankings/products_img`
 ### Views
 - Beer Ranking - All Reviews: `class ReviewView(TemplateView)`
 - Product details: `class ProductView(TemplateView)`
