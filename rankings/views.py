@@ -106,38 +106,14 @@ class ProductView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
-        
+
         beer = context['beer_details']
 
-        rev = Review(beer = beer)
-        #rev.save()
         feedback_form = ReviewForm(request.POST or None)
         if feedback_form.is_valid():
             save_form = feedback_form.save(commit = False)
+            save_form.beer = beer
             save_form.save()
             #rev.save()
             #return HttpResponse()
             return HttpResponseRedirect('.')
-
-
-
-'''
-   def get(self, request):
-       feedback_form = ReviewForm(request.POST)
-       if feedback_form.is_valid():
-           save_form = feedback_form.save(commit = False)
-           save_form.save()
-           # <view logic>
-       return HttpResponse('result')
-
-   def get(self, request, *args, **kwargs):
-       form = self.ReviewForm(initial={'key': 'value'})
-       return render(request, self.template_name, {'form': form})
-
-   def post(self, request, *args, **kwargs):
-       form = self.ReviewForm(request.POST)
-       if form.is_valid():
-           return HttpResponseRedirect('/success/')
-
-       return render(request, self.template_name, {'form': form})
-'''
