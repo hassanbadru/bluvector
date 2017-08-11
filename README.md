@@ -66,10 +66,12 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 
 ### URLs
 Used these URL pattern to the views
-```urlpatterns = [
+```python
+urlpatterns = [
     url(r'^$', views.ReviewView.as_view(), name='review'),
     url(r'^view-product/(?P<beer_id>[0-9]+)/$', views.ProductView.as_view(), name='view-product'),
-]```
+]
+```
 
 ## Extensibility
 In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template. In the meantime, I used an generic avatar/default for all Beers. Also, as the database expands, I've included an inactive footer pagination as an HTML comment.
