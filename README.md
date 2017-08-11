@@ -30,5 +30,7 @@ Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, sty
 ### Add Product
 While viewing highest rated or recently reviewed items, you can add new items for rating and review. When adding new beers, you would be prompted to fill out details about the beer and then to submit or close form.
 - Click "Add Product" button to show review forms, you can submit or close forms.
+- A brewery is selected from list of Breweries featured on the app
+- Breweries are chosesn and added my admin
 - After adding product, you shall be taken to product page to leave review.
 
