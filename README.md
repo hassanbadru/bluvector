@@ -22,7 +22,7 @@ structure for the application
  Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. This page also shows the name, number of reviews and overall rating for each beer *This page includes a heading as well as all featured breweries added by admin*
  
 ### View Product Details     
-Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, style, ABV, description & overall rating) as well as any reviews (rating, username of reviewer, time of comment & comments left) that have been written for it. *** When there are no reviews, it***
+Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, style, ABV, description & overall rating) as well as any reviews (rating, username of reviewer, time of comment & comments left) that have been written for it. 
 - Each product shows a maximum of 4 reviews at once but allows you scroll with footer navigation
 - Each product detail includes the number of review, but when there is no review yet, it shows "No Review Yet"
     
