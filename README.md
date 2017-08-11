@@ -43,7 +43,7 @@ While viewing highest rated or recently reviewed items, you can add new items fo
 Only an administrator can add Breweries. An administrator can also add, modify or delete beers and beer reviews
 
 ## Features
-***Project Name:*** bv_exercise, ***App Name:*** rankings
+***Project Name:*** `bv_exercise`, ***App Name:*** `rankings`
 ***Preloaded data:*** `beerlist.json`
 ### Views
 - Beer Ranking - All Reviews: `class ReviewView(TemplateView)`
@@ -57,6 +57,10 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 ### Templates
 - Beer Ranking - All Reviews: `review.html`
 - Product details: `product.html`
+
+### Forms
+- Add New Beer: `ProductForm`
+- Leave Review: `ReviewForm`
 
 ## Extensibility
 In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template 
