@@ -5,7 +5,7 @@ This is an web application that allows visitors add, rate and leave reviews for 
 - Download & unpack .zip file
 - Assuming you already have python and pip, install requirements using `​ pip install -r requirements.txt` within command prompt or terminal
 - Run the command `python manage.py runserver"
-- On your browser, go to http://127.0.0.1:8000/ or whatever server address was provided 
+- On your browser, go to http://127.0.0.1:8000/ or whatever server address was provided in terminal
 
 ## Requirements
 - [x] Use a Python framework of your choice for the server side processing
@@ -31,6 +31,6 @@ Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, sty
 While viewing highest rated or recently reviewed items, you can add new items for rating and review. When adding new beers, you would be prompted to fill out details about the beer and then to submit or close form.
 - Click "Add Product" button to show review forms, you can submit or close forms.
 - A brewery is selected from list of Breweries featured on the app
-- Breweries are chosesn and added my admin
+- Breweries are chosen and added to database my admin
 - After adding product, you shall be taken to product page to leave review.
 
