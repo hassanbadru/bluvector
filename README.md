@@ -17,7 +17,7 @@ This is an web application that allows visitors add, rate and leave reviews for 
 structure for the application
 - [x] Utilize AJAX to populate the data on the landing
 
-## How it works (Expectations)
+## How App Works (Expectations)
 ### View Product 
  Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. This page also shows the name, number of reviews and overall rating for each beer. *This page includes a heading as well as all featured breweries added by admin*
  
