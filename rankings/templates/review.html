@@ -34,15 +34,10 @@
       <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="/"><i style="font-size: 30px; color: #E75926;" class="fa fa-beer" aria-hidden="true"></i> BeerVector</a>
-						<!--<input type="text" name="search" placeholder="Search.."> -->
+
         </div>
 
-        <!--
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Log In</a></li>
-          </ul>
-        </div>--><!--/.nav-collapse -->
+
       </div>
     </nav>
 
@@ -55,21 +50,24 @@
 
 					<h1>Ranking - All Reviews</h1>
 
-			<!--
-				<div class="intro-body">
-			    <div class="container">
-			      <div class="row">
-			        <div class="col-md-12">
-			          <h1>Beer<span class="brand-heading">Vector</span></h1>
-			          <p class="intro-text">Find and rate from worst to the best of beets</p>
-			        </div>
-			       </div>
-					 </div>
-				 </div> -->
 
 			<main class="main-content">
 				<div class="container">
 					<div class="page">
+						<div>
+							<h1 style="text-align: center; color: #49111C; font-weight: normal">Ranking - All Reviews</h1>
+
+							<h2> List of our featured Breweries: </h2>
+							<span style="font-weight: normal">{% for brewery in breweries %}</span>
+
+								<span style="font-weight: normal; display: inline-block">
+
+									{{brewery}};
+								</span>
+								{% endfor %}
+
+						</div>
+
 
 
 
@@ -77,7 +75,7 @@
 
 
                         <div class="col-md-offset-10">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New Product</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New Beer</button>
                         </div>
 
                            <!-- Add New Product Modal -->
@@ -90,7 +88,7 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             <div class="form-group">
                                               <form class="register-form" action="" method="post">
-                                                <h3 style="text-align: center">Add New Product</h3>
+                                                <h3 style="text-align: center">Add New Beer</h3>
 																								{% csrf_token %}
 
 																								<!--{{forms.as_p}}-->
@@ -210,19 +208,7 @@
 
 		<!-- Default snippet for navigation -->
 			<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
-			<script>
-						function loadDoc() {
-						  var xhttp = new XMLHttpRequest();
-						  xhttp.onreadystatechange = function() {
-						    if (this.readyState == 4 && this.status == 200) {
-						      document.getElementById("rev").innerHTML =
-						      this.responseText;
-						    }
-						  };
-						  xhttp.open("GET", "/view-product", true);
-						  xhttp.send();
-						}
-			</script>
+
 	</body>
 
 

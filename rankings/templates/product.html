@@ -7,7 +7,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 
-		<title>BeerVector</title>
+		<title>BeerVector - {{beer_details}}</title>
 
 		<!-- Loading third party fonts -->
 		<!--<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css"> -->
@@ -45,15 +45,6 @@
       </div>
     </nav>
 
-    <!--<input type="text" name="search" placeholder="Search.."> -->
-
-    <!--
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Log In</a></li>
-      </ul>
-    </div>--><!--/.nav-collapse -->
-
 
 
             <br />
@@ -69,15 +60,6 @@
 
                         <br />
                         <br />
-                        <!--
-
-                         <ol class="breadcrumb">
-                           <li><a href="..">Rankings</a></li>
-                           <li class="active">Product</li>
-                         </ol>
-
-                        <br />
-                        <br /> -->
 
 
 
@@ -121,7 +103,7 @@
 
                       <br />
 
-                      <button class="btn btn-primary" data-toggle="collapse" data-target="#newreview">Add Review</button>
+                      <button class="btn btn-primary" data-toggle="collapse" data-target="#newreview">Leave Review</button>
                   </div>
               </div>
 
@@ -136,8 +118,8 @@
                       <label for="starating">Please Rate:  </label> <br/>
                           <div class="rating">
                                   <input type="radio" id="star5" name="ranking" value=5 required/> <label class = "full" for="star5"> </label>
-                                  <input type="radio" id="star4" name="ranking" value=4/> <label class = "full" for="star4"> </label>
-                                  <input type="radio" id="star3" name="ranking" value=3/><label class = "full" for="star3"></label>
+                                  <input type="radio" id="star4" name="ranking" value=4 /> <label class = "full" for="star4"> </label>
+                                  <input type="radio" id="star3" name="ranking" value=3 /><label class = "full" for="star3"></label>
                                   <input type="radio" id="star2" name="ranking" value=2 /><label class = "full" for="star2"></label>
                                   <input type="radio" id="star1" name="ranking" value=1 /><label class = "full" for="star1"></label>
                           </div> <br/> <br/>
@@ -193,7 +175,9 @@
                 <li class="next disabled"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
                 {% endif %}
 
+                {% if reviews %}
                 <span class="current">Page {{ items.number }} of {{ items.paginator.num_pages }}</span>
+                {% endif %}
 
                 {% if items.has_previous %}
                 <li class="previous"><a href="?page={{items.previous_page_number}}"><span aria-hidden="true">&larr;</span> Newer</a></li>

@@ -15,10 +15,8 @@ class Beer(models.Model):
     name = models.CharField(max_length=255)
     brewery = models.ForeignKey(Brewery, related_name='beers')
     style = models.CharField(max_length=255)
-    abv = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Alcohol by Volume")
+    abv = models.DecimalField(max_digits=2, decimal_places=0, verbose_name="Alcohol by Volume (%)", blank=False)
     description = models.TextField()
-    #total_ranking = models.IntegerField(null = True)
-
 
     def __str__(self):
         return "{0}".format(self.name)
@@ -26,12 +24,9 @@ class Beer(models.Model):
 
 class Review(models.Model):
     date = models.DateTimeField(auto_now_add=True)
-    # For this exercise we don't need to register users,
-    # let them input their username manually.
     username = models.CharField(max_length=255)
     ranking = models.IntegerField()
     comment = models.TextField()
-    #beer = models.CharField(max_length=255, null = True)
     beer = models.ForeignKey(Beer, related_name="reviews", null = True)
 
     def true_ranking(self):
