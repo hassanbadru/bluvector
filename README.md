@@ -18,7 +18,7 @@ structure for the application
 ### View Product 
  Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. 
 ### View Product Details     
-Navigating to a beer returns a detailed view of it (i.e. beer name, brewery style & overall rating) as well as and any reviews (rating, username of reviewer, time of comment & comments left)that have been written for it.
+Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, style, ABV, description & overall rating) as well as and any reviews (rating, username of reviewer, time of comment & comments left)that have been written for it.
 - Each product shows a maximum of 4 reviews at once but allows you scroll with footer navigation
     
  ### Leave Review
@@ -28,6 +28,7 @@ Navigating to a beer returns a detailed view of it (i.e. beer name, brewery styl
  - You can go back to view all Beers & ratings
 
 ### Add Product
-This service shall also allow for users to add new items for rating and review. When creating
-new items, the user must fill out what ever meta-data you’ve deemed relevant to collect about
-the product or service under review.
+While viewing highest rated or recently reviewed items, you can add new items for rating and review. When adding new beers, you would be prompted to fill out details about the beer and then to submit or close form.
+- Click "Add Product" button to show review forms, you can submit or close forms.
+- After adding product, you shall be taken to product page to leave review.
+
