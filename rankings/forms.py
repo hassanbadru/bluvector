@@ -9,4 +9,4 @@ class ProductForm(ModelForm):
 class ReviewForm(ModelForm):
     class Meta:
         model = Review
-        fields = ['username', 'ranking', 'comment', 'beer']
+        fields = ['username', 'ranking', 'comment']

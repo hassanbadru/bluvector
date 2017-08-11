@@ -132,6 +132,16 @@
                 <div class="form-group">
                     <form action="" method="POST">
                       {% csrf_token %}
+                      <br/>
+                      <label for="starating">Please Rate:  </label> <br/>
+                          <div class="rating">
+                                  <input type="radio" id="star5" name="ranking" value="5" /> <label class = "full" for="star5"> </label>
+                                  <input type="radio" id="star4" name="ranking" value="4"/> <label class = "full" for="star4"> </label>
+                                  <input type="radio" id="star3" name="ranking" value="3"/><label class = "full" for="star3"></label>
+                                  <input type="radio" id="star2" name="ranking" value="2" /><label class = "full" for="star2"></label>
+                                  <input type="radio" id="star1" name="ranking" value="1" /><label class = "full" for="star1"></label>
+                          </div> <br/> <br/>
+
                       {{ forms.as_p }}
                       <!--
                         <label for="starating">Please Rate:  </label> <br/>

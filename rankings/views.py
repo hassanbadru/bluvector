@@ -4,7 +4,8 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 from .models import Beer, Brewery, Review
 from .forms import ReviewForm, ProductForm
@@ -12,19 +13,11 @@ from .forms import ReviewForm, ProductForm
 import math
 from datetime import *
 
-g_variables = {}
 
 class ReviewView(TemplateView):
     template_name = 'review.html'
 
-    def post(self, request, *args, **kwargs):
-        product_form = ReviewForm(request.POST or None)
-        if product_form.is_valid():
-            save_form = product_form.save(commit = False)
-            save_form.save()
-            print(save_form)
-        #return HttpResponse()
-        return HttpResponseRedirect("/")
+
 
     def get_context_data(self, **kwargs):
        context = super(ReviewView, self).get_context_data(**kwargs)
@@ -57,6 +50,7 @@ class ReviewView(TemplateView):
            num_of_reviews.append(n_reviews)
 
            if n_reviews > 0:
+               print([x.ranking for x in beer_reviews])
                avg_rating = (sum([x.ranking for x in beer_reviews]) / float(n_reviews)) * 20
            else:
                avg_rating = 0
@@ -71,6 +65,15 @@ class ReviewView(TemplateView):
        #self.request.POST
        context['forms'] = ProductForm()
        return context
+
+    def post(self, request, *args, **kwargs):
+        product_form = ReviewForm(request.POST or None)
+        if product_form.is_valid():
+            save_form = product_form.save(commit = False)
+            save_form.save()
+            print(save_form)
+        #return HttpResponse()
+        return HttpResponseRedirect("/")
 
 
 
@@ -102,14 +105,19 @@ class ProductView(TemplateView):
        return context
 
     def post(self, request, *args, **kwargs):
-        #context = super(ProductView, self).get_context_data()
+        context = self.get_context_data(**kwargs)
+        
+        beer = context['beer_details']
+
+        rev = Review(beer = beer)
+        #rev.save()
         feedback_form = ReviewForm(request.POST or None)
         if feedback_form.is_valid():
             save_form = feedback_form.save(commit = False)
             save_form.save()
-            print(save_form)
+            #rev.save()
             #return HttpResponse()
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect('.')
 
 
 
