@@ -135,7 +135,7 @@
                       <br/>
                       <label for="starating">Please Rate:  </label> <br/>
                           <div class="rating">
-                                  <input type="radio" id="star5" name="ranking" value=5 /> <label class = "full" for="star5"> </label>
+                                  <input type="radio" id="star5" name="ranking" value=5 required/> <label class = "full" for="star5"> </label>
                                   <input type="radio" id="star4" name="ranking" value=4/> <label class = "full" for="star4"> </label>
                                   <input type="radio" id="star3" name="ranking" value=3/><label class = "full" for="star3"></label>
                                   <input type="radio" id="star2" name="ranking" value=2 /><label class = "full" for="star2"></label>
@@ -146,22 +146,7 @@
                       {% for field in forms %}
                         <div class="form-group"> <table> <tr><td style="width: 30%"> {{field.label_tag}}</td><td>{{field}} </td></tr> </table></div>
                       {% endfor %}
-                      <!--
-                        <label for="starating">Please Rate:  </label> <br/>
-                            <div class="rating">
-                                    <input type="radio" id="star5" name="rating" value="5" /> <label class = "full" for="star5"> </label>
-                                    <input type="radio" id="star4" name="rating" value="4"/> <label class = "full" for="star4"> </label>
-                                    <input type="radio" id="star3" name="rating" value="3"/><label class = "full" for="star3"></label>
-                                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
-                                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
-                            </div> <br/> <br/> <br/>
 
-                        <label for="username">Username:</label>
-                            <input type="text" placeholder="" id="username" class="form-control"/> <br/>
-
-
-                        <label for="comment">Comment (Optional): </label>
-                            <textarea class="form-control" rows="3" id="comment" class="form-control"></textarea> <br/> -->
 
                             <button type = "submit">Submit</button>
                     </form>
@@ -177,7 +162,7 @@
             </div>
 
             {% if reviews %}
-            {% for feedback in reviews %}
+            {% for feedback in items %}
             <div class = "row">
               <fieldset style="padding: 20px">
                 <div class="col-md-3">
@@ -200,44 +185,21 @@
               <p style="text-align: center">No Reviews Yet</p>
             {% endif %}
 
-
-            <!--
-            <div class = "row">
-              <fieldset style="padding: 20px">
-                <div class="col-md-3">
-                  <p><div class="star-rating" title="Rated 2.00 out of 5"><span style="width:40%"><strong class="rating">2.00</strong> out of 5</span></div></p>
-                  <p><strong>By: </strong>Jacob</p>
-                  <p><strong>Posted: </strong>03/11/2015</p>
-                </div>
-                <div class="col-md-8">
-                  <p>
-                      Vivamus feugiat efficitur tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec eu efficitur quam. Ut vulputate eu ex a tincidunt. Nunc sed dictum tellus. Morbi ac lorem a libero ultrices tristique id vel dui. Morbi et dolor risus.
-                  </p>
-                </div>
-              </fieldset>
-            </div>
-
-            <br />
-
-            <div class = "row">
-              <fieldset style="padding: 20px">
-                <div class="col-md-3">
-                  <p><div class="star-rating" title="Rated 5.00 out of 5"><span style="width:100%"><strong class="rating">5.00</strong> out of 5</span></div></p>
-                  <p><strong>By: </strong>Kate</p>
-                  <p><strong>Posted: </strong>12/04/2011</p>
-                </div>
-                <div class="col-md-8">
-                  <p>
-                      Suspendisse a faucibus sapien. Curabitur ornare aliquet luctus. Praesent mattis tincidunt lectus vel consequat. Fusce blandit felis et leo tincidunt, sit amet mollis diam feugiat. Etiam mattis tincidunt mauris sit amet ullamcorper. Nullam eget varius elit. Donec eleifend aliquam ipsum non commodo. Praesent feugiat lobortis lorem ut fermentum. Fusce vulputate elit aliquet, fermentum neque eu, tincidunt velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                  </p>
-                </div>
-              </fieldset>
-            </div> -->
-
             <nav aria-label="...">
               <ul class="pager">
-                <li class="next"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
-                <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Newer</a></li>
+                {% if items.has_next %}
+                <li class="next"><a href="?page={{items.next_page_number}}">Older <span aria-hidden="true">&rarr;</span></a></li>
+                {% else %}
+                <li class="next disabled"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
+                {% endif %}
+
+                <span class="current">Page {{ items.number }} of {{ items.paginator.num_pages }}</span>
+
+                {% if items.has_previous %}
+                <li class="previous"><a href="?page={{items.previous_page_number}}"><span aria-hidden="true">&larr;</span> Newer</a></li>
+                {% else %}
+                  <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Newer</a></li>
+                {% endif %}
               </ul>
             </nav>
 

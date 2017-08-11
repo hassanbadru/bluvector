@@ -32,7 +32,7 @@ class Review(models.Model):
     ranking = models.IntegerField()
     comment = models.TextField()
     #beer = models.CharField(max_length=255, null = True)
-    beer = models.ForeignKey(Beer, related_name="reviews")
+    beer = models.ForeignKey(Beer, related_name="reviews", null = True)
 
     def true_ranking(self):
         return self.ranking * 20

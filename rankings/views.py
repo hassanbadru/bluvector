@@ -2,10 +2,12 @@
 from __future__ import unicode_literals
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
+
 
 from .models import Beer, Brewery, Review
 from .forms import ReviewForm, ProductForm
@@ -16,6 +18,7 @@ from datetime import *
 
 class ReviewView(TemplateView):
     template_name = 'review.html'
+    paginate_by = 8
 
 
 
@@ -56,18 +59,17 @@ class ReviewView(TemplateView):
                avg_rating = 0
            t_ranking.append(avg_rating)
 
-
        riterator = zip(num_of_reviews, context['all_beers'], t_ranking, last_review_date)
        context['by_rating'] = sorted(riterator, reverse=True, key = lambda t: t[2])
        context['by_date'] = sorted(riterator, reverse=True, key = lambda t: t[3])
 
-
-       #self.request.POST
        context['forms'] = ProductForm()
+
        return context
 
+
     def post(self, request, *args, **kwargs):
-        product_form = ReviewForm(request.POST or None)
+        product_form = ProductForm(request.POST or None)
         if product_form.is_valid():
             save_form = product_form.save(commit = False)
             save_form.save()
@@ -81,12 +83,21 @@ class ReviewView(TemplateView):
 
 #View of Product and all feedback
 class ProductView(TemplateView):
+
     template_name = 'product.html'
+    context_object_name = "reviews"
+    paginate_by = 4
+
 
     def get_context_data(self, beer_id):
        context = super(ProductView, self).get_context_data()
-       #context['all_beers'] = Beer.objects.all()
-       context['beer_details'] = Beer.objects.get(pk=beer_id)
+
+       #404
+       try:
+           context['beer_details'] = Beer.objects.get(pk=beer_id)
+       except Beer.DoesNotExist:
+           raise Http404("Such Beer Does Not Exist")
+
        beer = context['beer_details']
 
        context['reviews'] = sorted(Review.objects.filter(beer=beer), reverse= True)
@@ -99,26 +110,43 @@ class ProductView(TemplateView):
            context['t_ranking'] = sum(t_ranks)/float(len(t_ranks)) * 20
        else:
            context['t_ranking'] = 0
-       #print(self.request)
 
        context['forms'] = ReviewForm()
+
+
+       paginator= Paginator(context['reviews'], self.paginate_by) # Show 25 contacts per page
+
+       page = self.request.GET.get('page')
+       try:
+           items = paginator.page(page)
+       except PageNotAnInteger:
+           # If page is not an integer, deliver first page.
+           items = paginator.page(1)
+
+       except EmptyPage:
+           # If page is out of range (e.g. 9999), deliver last page of results.
+           items = paginator.page(paginator.num_pages)
+
+       context['items'] = items
+
+
        return context
+
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
 
         beer = context['beer_details']
 
-        print(request.POST.get("ranking"))
         rating = request.POST.get("ranking")
-        #print(rating)
 
         feedback_form = ReviewForm(request.POST or None)
+
         if feedback_form.is_valid():
             save_form = feedback_form.save(commit = False)
             save_form.beer = beer
-            save_form.ranking = rating
+            save_form.ranking = int(rating)
+            #print(save_form)
             save_form.save()
-            #rev.save()
-            #return HttpResponse()
+
             return HttpResponseRedirect('.')
