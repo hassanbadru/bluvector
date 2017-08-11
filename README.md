@@ -15,9 +15,9 @@ structure for the application
 - [x] Utilize AJAX to populate the data on the landing
 
 ## Expectations
-### Product View
+### View Product 
  Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. 
-### Product Details View    
+### View Product Details     
 Navigating to a beer returns a detailed view of it (i.e. beer name, brewery style & overall rating) as well as and any reviews (rating, username of reviewer, time of comment & comments left)that have been written for it.
 - Each product shows a maximum of 4 reviews at once but allows you scroll with footer navigation
     
