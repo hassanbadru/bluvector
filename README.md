@@ -27,7 +27,7 @@ Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, sty
  ### Leave Review
  When viewing a beer, you have an option leave a review for that beer. When reviewing, you would provide a 1 to 5 rating for the beer as well as an optional comment section below.
  - Click "Leave Review" button to show review forms, you can submit or close forms.
- - All entries are required *(including star rating)*
+ - Username and star rating are required
  - The page automatically shows your recently left review
  - You can go back to view all Beers & ratings
 
