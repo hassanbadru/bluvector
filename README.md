@@ -20,6 +20,7 @@ structure for the application
 ## How it works (Expectations)
 ### View Product 
  Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. *This page includes a heading as well as all featured breweries added by admin*
+ 
 ### View Product Details     
 Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, style, ABV, description & overall rating) as well as any reviews (rating, username of reviewer, time of comment & comments left) that have been written for it.
 - Each product shows a maximum of 4 reviews at once but allows you scroll with footer navigation
@@ -63,7 +64,7 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 - Leave Review: `ReviewForm`
 
 ## Extensibility
-In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template. Also, as the database expands, I've included an inactive footer pagination as an HTML comment.
+In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template. In the meantime, I used an generic avatar/default for all Beers. Also, as the database expands, I've included an inactive footer pagination as an HTML comment.
 
 ## Other Notes
 Focus outline designed to aid with accessibility
