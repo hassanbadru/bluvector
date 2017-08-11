@@ -44,8 +44,8 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 
 ## Features
 ### Views
-Beer Ranking - All Reviews: `class ReviewView(TemplateView):`
-Product details: `class ProductView(TemplateView):`
+- Beer Ranking - All Reviews: `class ReviewView(TemplateView):`
+- Product details: `class ProductView(TemplateView):`
 
 ### Models
 
