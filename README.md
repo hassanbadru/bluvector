@@ -24,6 +24,7 @@ Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, sty
  ### Leave Review
  When viewing a beer, you have an option leave a review for that beer. When reviewing, you would provide a 1 to 5 rating for the beer as well as an optional comment section below.
  - Click "Leave Review" button to show review forms, you can submit or close forms.
+ - All entries are required
  - The page automatically shows your recently left review
  - You can go back to view all Beers & ratings
 
@@ -32,5 +33,6 @@ While viewing highest rated or recently reviewed items, you can add new items fo
 - Click "Add Product" button to show review forms, you can submit or close forms.
 - A brewery is selected from list of Breweries featured on the app
 - Breweries are chosen and added to database my admin
+- Does not accept entries greater than 100
 - After adding product, you shall be taken to product page to leave review.
 
