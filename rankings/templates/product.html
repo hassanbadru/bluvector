@@ -72,7 +72,6 @@
 
     								</a>
 
-								<!--<p>Belgian</p> -->
 
 							</div>
 
@@ -107,7 +106,7 @@
                   </div>
               </div>
 
-              <!-- ADD NEWREVIEW -->
+              <!-- ADD NEW REVIEW -->
               <div id="newreview" class="collapse col-md-4" style="background-color: #F8F6F6; padding: 20px">
                 <button type="button" class="close" data-toggle="collapse" data-target="#newreview">&times;</button>
                 <h2>Your Review</h2>
@@ -153,9 +152,11 @@
                   <p><strong>Posted: </strong>{{feedback.date}}</p>
                 </div>
                 <div class="col-md-8" >
-                  <p>
-                      {{feedback.comment}}
-                  </p>
+									{% if feedback.comment %}
+                  	<p style="margin: 20px">{{feedback.comment}}</p>
+									{% else %}
+										<i style="margin: 20px"><b>{{feedback.username}}</b> left no review comment</i>
+									{% endif %}
                 </div>
               </fieldset>
             </div>
