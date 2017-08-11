@@ -14,7 +14,7 @@ This is an web application that allows visitors add, rate and leave reviews for 
 structure for the application
 - [x] Utilize AJAX to populate the data on the landing
 
-## Expectations
+## How it works (Expectations)
 ### View Product 
  Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. 
 ### View Product Details     
