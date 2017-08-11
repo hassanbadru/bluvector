@@ -53,6 +53,8 @@ Only an administrator can add Breweries. An administrator can also add, modify o
 - ***Review*** - date, username, ranking, comment, beer `class Review(models.Model)`
 
 ### Templates
+- Beer Ranking - All Reviews: `review.html`
+- Product details: `product.html`
 
 ## Extensibility
 In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template 
