@@ -36,7 +36,7 @@ While viewing highest rated or recently reviewed items, you can add new items fo
 - Click "Add Product" button to show review forms, you can submit or close forms.
 - A brewery is selected from list of Breweries featured on the app
 - Breweries are chosen and added to database my admin
-- Does not accept Alcohol per Volume (ABV) entries greater than 999
+- Does not accept Alcohol per Volume (ABV) entries greater than 99
 - After adding product, you shall be taken to product page to leave review.
 
 ## Extensibility
