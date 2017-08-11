@@ -10,7 +10,7 @@ This is an web application that allows visitors add, rate and leave reviews for 
 
 *Note: On your browser, go to http://127.0.0.1:8000/admin to access admin*
 
-## Requirements
+## Exercise Requirements
 - [x] Use a Python framework of your choice for the server side processing
 - [x] Use a persistent database of your choice to store the data
 - [x] Use a front-end design/layout framework of your choice to provide the base styling and
