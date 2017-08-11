@@ -7,7 +7,8 @@ This is an web application that allows visitors add, rate and leave reviews for 
 - Create an admin user with the command `python manage.py createsuperuser`
 - Run the command `python manage.py runserver`
 - On your browser, go to http://127.0.0.1:8000/ or whatever server address was provided in terminal
-* On your browser, go to http://127.0.0.1:8000/admin to access admin*
+
+*N.B: On your browser, go to http://127.0.0.1:8000/admin to access admin*
 
 ## Requirements
 - [x] Use a Python framework of your choice for the server side processing
