@@ -4,7 +4,7 @@ This is an web application that allows visitors add, rate and leave reviews for 
 ## Set Up Running
 - Download & unpack .zip file
 - Assuming you already have python and pip, install requirements using `​ pip install -r requirements.txt` within command prompt or terminal
-- Run the command `python manage.py runserver"
+- Run the command `python manage.py runserver`
 - On your browser, go to http://127.0.0.1:8000/ or whatever server address was provided in terminal
 
 ## Requirements
