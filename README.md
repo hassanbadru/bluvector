@@ -21,13 +21,13 @@ structure for the application
 ### View Product 
  Upon visiting the site, you shall be presented a view of the highest rated items, as well as a view of the most recently rated/reviewed items. *This page includes a heading as well as all featured breweries added by admin*
 ### View Product Details     
-Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, style, ABV, description & overall rating) as well as and any reviews (rating, username of reviewer, time of comment & comments left)that have been written for it.
+Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, style, ABV, description & overall rating) as well as any reviews (rating, username of reviewer, time of comment & comments left) that have been written for it.
 - Each product shows a maximum of 4 reviews at once but allows you scroll with footer navigation
     
  ### Leave Review
  When viewing a beer, you have an option leave a review for that beer. When reviewing, you would provide a 1 to 5 rating for the beer as well as an optional comment section below.
  - Click "Leave Review" button to show review forms, you can submit or close forms.
- - Username and star rating are required
+ - Username and star rating are required on form
  - The page automatically shows your recently left review
  - You can go back to view all Beers & ratings
 
@@ -39,8 +39,12 @@ While viewing highest rated or recently reviewed items, you can add new items fo
 - Does not accept Alcohol per Volume (ABV) entries greater than 99
 - After adding product, you shall be taken to product page to leave review.
 
+## Admin Interface
+Only an administrator can add Breweries. An administrator can also add, modify or delete beers and beer reviews
+
 ## Extensibility
 In the future, it would be possible to add beer avatars by including a file input and render the address of the image to HTML template 
 
 ## Other Notes
 Focus outline designed to aid with accessibility
+
