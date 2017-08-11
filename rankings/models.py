@@ -29,10 +29,10 @@ class Review(models.Model):
     # For this exercise we don't need to register users,
     # let them input their username manually.
     username = models.CharField(max_length=255)
-    ranking = models.IntegerField(null = True)
+    ranking = models.IntegerField()
     comment = models.TextField()
     #beer = models.CharField(max_length=255, null = True)
-    beer = models.ForeignKey(Beer, related_name="reviews", null = True)
+    beer = models.ForeignKey(Beer, related_name="reviews")
 
     def true_ranking(self):
         return self.ranking * 20

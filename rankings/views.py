@@ -109,10 +109,15 @@ class ProductView(TemplateView):
 
         beer = context['beer_details']
 
+        print(request.POST.get("ranking"))
+        rating = request.POST.get("ranking")
+        #print(rating)
+
         feedback_form = ReviewForm(request.POST or None)
         if feedback_form.is_valid():
             save_form = feedback_form.save(commit = False)
             save_form.beer = beer
+            save_form.ranking = rating
             save_form.save()
             #rev.save()
             #return HttpResponse()
