@@ -22,7 +22,7 @@ Navigating to a beer returns a detailed view of it (i.e. beer name, brewery, sty
 - Each product shows a maximum of 4 reviews at once but allows you scroll with footer navigation
     
  ### Leave Review
- When viewing a beer, you have an option leave a review for that beer. When reviewing, you would provide a 1 to 5 rating for the beer as well as an optional comment section below. (Click to Submit).
+ When viewing a beer, you have an option leave a review for that beer. When reviewing, you would provide a 1 to 5 rating for the beer as well as an optional comment section below.
  - Click "Leave Review" button to show review forms, you can submit or close forms.
  - The page automatically shows your recently left review
  - You can go back to view all Beers & ratings
