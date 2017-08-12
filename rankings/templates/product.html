@@ -49,7 +49,7 @@
 
             <br />
             <br />
-  <div class = "col-md-12">
+  <div id = "contents" class = "col-md-12">
 			<main class="main-content">
 				<div class="container">
 					<div class="page">
@@ -106,7 +106,7 @@
                   </div>
               </div>
 
-              <!-- ADD NEW REVIEW -->
+              <!-- ADD NEWREVIEW -->
               <div id="newreview" class="collapse col-md-4" style="background-color: #F8F6F6; padding: 20px">
                 <button type="button" class="close" data-toggle="collapse" data-target="#newreview">&times;</button>
                 <h2>Your Review</h2>
@@ -147,7 +147,7 @@
             <div class = "row">
               <fieldset style="padding: 20px">
                 <div class="col-md-3">
-                  <p><div class="star-rating" title="Rated 4.00 out of 5"><span style="width:{{feedback.true_ranking}}%"><strong class="rating">4.00</strong> out of 5</span></div></p>
+                  <p><div class="star-rating"><span style="width:{{feedback.true_ranking}}%"></span></div></p>
                   <p><strong>By: </strong>{{feedback.username}}</p>
                   <p><strong>Posted: </strong>{{feedback.date}}</p>
                 </div>
@@ -197,8 +197,18 @@
 
 
 		<!-- Default snippet for navigation -->
-			<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+			<!--
+			<script>
+			$("a").click(function() {
+			var $this = $(this),
+			    href = $this.attr("href");
 
+			$("#contents").load(href);
+
+			location.href = "#" + href;
+			});
+			</script>
+		-->
 	</body>
 
 </html>

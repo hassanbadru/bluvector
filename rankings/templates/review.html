@@ -45,7 +45,7 @@
 
 
 
-    <div class = "col-md-12" id="rev">
+    <div id = "contents" class = "col-md-12" id="rev">
 
 
 					<h1>Ranking - All Reviews</h1>
@@ -128,12 +128,12 @@
 
 											{% for t_ratings, beer, t_ranking, last_review_date in by_rating %}
 													<div class="product">
-														<a href = "{% url 'view-product' beer.id %}">
+														<a id = "todetails" href = "{% url 'view-product' beer.id %}">
 															<figure class="product-poster"><img style="height: 350px" src="{% static 'products_img/any_beer.jpg' %}" alt="#"></figure>
 															<div class="product-title"> {{beer.name}} </div>
 														</a>
 
-														<div class="star-rating" title="Rated 3.00 out of 5"><span style="width:{{t_ranking}}%"><strong class="rating">3.00</strong> out of 5</span></div>
+														<div class="star-rating"><span style="width:{{t_ranking}}%"></span></div>
 														{% if t_ratings %}
 																{% if t_ratings == 1 %}
 					                    			({{t_ratings}} review)
@@ -207,8 +207,17 @@
 
 
 		<!-- Default snippet for navigation -->
-			<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
 
+			<script>
+			$("a").click(function() {
+			var $this = $(this),
+			    href = $this.attr("href");
+
+			$(document.body).load(href);
+
+			location.href = "#" + href;
+
+			</script>
 	</body>
 
 

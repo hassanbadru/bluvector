@@ -3,14 +3,14 @@ from __future__ import unicode_literals
 from django.db import models
 from django.core.urlresolvers import reverse
 
-
+# Brewery Model
 class Brewery(models.Model):
     name = models.CharField(unique=True, max_length=255)
 
     def __str__(self):
         return self.name
 
-
+# Beer model
 class Beer(models.Model):
     name = models.CharField(max_length=255)
     brewery = models.ForeignKey(Brewery, related_name='beers')
@@ -22,6 +22,7 @@ class Beer(models.Model):
         return "{0}".format(self.name)
 
 
+# Review Model
 class Review(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     username = models.CharField(max_length=255)

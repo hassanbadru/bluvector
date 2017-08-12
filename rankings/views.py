@@ -55,7 +55,7 @@ class ReviewView(TemplateView):
 
            # Find ranking average of all ratings
            if n_reviews > 0:
-               print([x.ranking for x in beer_reviews])
+               #print([x.ranking for x in beer_reviews])
                avg_rating = (sum([x.ranking for x in beer_reviews]) / float(n_reviews)) * 20
            else:
                avg_rating = 0
@@ -81,7 +81,7 @@ class ReviewView(TemplateView):
         if product_form.is_valid():
             save_form = product_form.save(commit = False)
             save_form.save()
-            print(save_form.id)
+            #print(save_form.id)
             new_beer_id = int(save_form.id)
 
         # Redirects to the view product of product details and for review
